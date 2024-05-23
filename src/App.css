@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+@media (max-width: 600px) {
+  .MuiTabs-indicator {
+    opacity: 0;
+  }
+  .MuiTabs-flexContainer {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}

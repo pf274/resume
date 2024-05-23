@@ -1,22 +1,25 @@
-import './App.css'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { getData } from './getData';
-import { Resume } from './Resume';
-import { ThemeProvider } from '@emotion/react';
-import { CssBaseline, createTheme } from '@mui/material';
+import "./App.css";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getData } from "./getData";
+import { Resume } from "./Resume";
+import { ThemeProvider } from "@emotion/react";
+import { CssBaseline, createTheme } from "@mui/material";
 
 const lightTheme = createTheme({
   palette: {
-    mode: 'light'
-  }
+    mode: "light",
+    background: {
+      default: "#e5e5e5", // replace with your desired color
+    },
+  },
 });
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark'
-  }
-})
+    mode: "dark",
+  },
+});
 
 function App() {
   const [data, setData] = useState({});
@@ -28,7 +31,7 @@ function App() {
       <CssBaseline />
       <Resume resume={data} />
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

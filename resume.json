@@ -1,0 +1,321 @@
+{
+  "basics": {
+    "name": "Peter Fullmer",
+    "label": "Full-Stack Web/App Developer",
+    "image": "https://i.imgur.com/moD7A4r.jpeg",
+    "email": "peterfullmer33@gmail.com",
+    "phone": "(208) 929-8189",
+    "url": "https://pf274.github.io/",
+    "summary": "Full-Stack Web/App Developer, utilizing years of programming experience to create cutting-edge solutions to modern-day problems.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Provo",
+      "countryCode": "US",
+      "region": "Utah"
+    },
+    "profiles": [
+      {
+        "network": "Linkedin",
+        "username": "",
+        "url": "https://www.linkedin.com/in/peter-fullmer-207a45167"
+      },
+      {
+        "network": "Facebook",
+        "username": "",
+        "url": "https://www.facebook.com/peter.fullmer"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Hanai Project",
+      "position": "App Developer",
+      "url": "https://hanaiproject.com",
+      "startDate": "2023-03-01",
+      "endDate": "2025-01-01",
+      "summary": "Working as head developer to create a cutting-edge, AI-powered family history mobile app. Utilizing Expo Go (React Native), AWS Amplify, AWS DynamoDB, AWS S3, AWS Transcribe, AWS RDS, Cloudflare, Node.js, and Serverless.js.",
+      "highlights": ["Created the app", "Developed the app until its release"]
+    },
+    {
+      "name": "BYU Law School - Development",
+      "position": "Web Developer",
+      "url": "https://law.byu.edu",
+      "startDate": "2023-03-01",
+      "endDate": "2025-01-01",
+      "summary": "Working primarily as backend developer to create and optimize services used at the law school. Utilizing Node.js, Serverless.js, MySQL, AWS DynamoDB, AWS S3, etc. \n\nManaging the law info website, which allows faculty and students to register for classes, see progress reports, enter and release grades, and view student and faculty directories. \n\nCreated the law media website, which allows faculty to upload class recordings and share them with students individually or in groups. Utilizing AWS Elemental MediaConvert to allow video streaming, AWS Transcribe to provide captions and transcriptions of each lecture, and React.js with Material UI to develop the frontend.",
+      "highlights": [
+        "Created Media Sharing Website (AWS MediaConvert, AWS Transcribe, AWS S3, etc.)",
+        "Wrote many mocha unit tests",
+        "Refactored Organization's repositories",
+        "Helped to create the law school's main website using Strapi"
+      ]
+    },
+    {
+      "name": "BYU Law School - Media Services",
+      "position": "Media Services Specialist",
+      "url": "https://law.byu.edu/it-services/resources/media-services",
+      "startDate": "2021-12-01",
+      "endDate": "2022-03-01",
+      "summary": "Collaborating with a team of eight student developers to manage class recordings used by law personnel.\n\nOversaw the production and broadcasting of weekly devotionals.",
+      "highlights": [
+        "Worked with faculty members to fix and set up equipment for lectures",
+        "Managed requests to access recordings",
+        "Archived recordings in an organized file system"
+      ]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "The Church of Jesus Christ of Latter-day Saints",
+      "position": "Missionary",
+      "url": "https://www.churchofjesuschrist.org/",
+      "startDate": "2019-10-08",
+      "endDate": "2021-10-11",
+      "summary": "Worked as a Missionary to help people improve their lives both physically and spiritually. Served in Ciudad Juarez, Mexico, and Eugene Oregon, United States.",
+      "highlights": [
+        "Planned and carried out hundreds of service projects",
+        "Learned to effectively listen and communicate",
+        "Learned Spanish in an immersive environment"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Brigham Young University",
+      "url": "https://www.byu.edu/",
+      "area": "Software Development",
+      "studyType": "Bachelor's Degree",
+      "startDate": "2022-01-01",
+      "endDate": "2025-04-01",
+      "score": "3.7",
+      "courses": [
+        "Completed | - | CS 142 | Intro to Computer Programming",
+        "Completed | - | CS 224 | Introduction to Computer Systems",
+        "Completed | - | CS 252 | Intro to Computational Theory",
+        "Completed | - | CS 235 | Data Structures and Algorithms",
+        "Completed | - | CS 236 | Discrete Structures",
+        "Completed | - | CS 240 | Advanced Software Construction",
+        "Completed | - | CS 260 | Web Programming",
+        "Completed | - | CS 312 | Algorithm Design and Analysis",
+        "Completed | - | CS 324 | Systems Programming",
+        "Completed | - | CS 340 | Software Design",
+        "Completed | - | MATH 112 | Calculus 1",
+        "Completed | - | MATH 113 | Calculus 2",
+        "Completed | - | MATH 213 | Elementary Linear Algebra",
+        "Completed | - | MATH 215 | Computational Linear Algebra",
+        "Completed | - | PHSCS 105 | Physics",
+        "Completed | - | WRTG 150 | Writing & Rhetoric",
+        "Completed | - | WRTG 316 | Technical Communication",
+        "Completed | - | STAT 121 | Principles of Statistics",
+        "Completed | - | HIST 220 | U.S. History through 1877",
+        "Completed | - | REL C 351 | World Religions",
+        "Completed | - | PHIL 210 | Science & Civilization 1",
+        "Completed | - | PHIL 213 | Introduction to Ethics",
+        "Completed | - | ARTHC 202 | World Civilization since 1500",
+        "Completed | - | BIO 100 | Principles of Biology",
+        "Completed | - | PSYCH 111 | Psychological Science"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Eagle Scout",
+      "date": "2018-08-01",
+      "awarder": "Boy Scouts of America",
+      "summary": "Earned the rank of Eagle Scout"
+    }
+  ],
+  "certificates": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Advanced",
+      "keywords": [
+        "CSS",
+        "Express.js",
+        "Github Pages",
+        "HTML",
+        "JavaScript",
+        "Next.js",
+        "Node.js",
+        "GraphQL",
+        "React.js",
+        "RESTful APIs",
+        "Serverless.js",
+        "Solid.js",
+        "TypeScript",
+        "WebSockets"
+      ]
+    },
+    {
+      "name": "App Development",
+      "level": "Intermediate",
+      "keywords": ["React Native", "Expo Go", "AWS Amplify", "Serverless.js"]
+    },
+    {
+      "name": "Amazon Web Services",
+      "level": "Intermediate",
+      "keywords": [
+        "Amplify",
+        "API Gateway",
+        "CloudWatch",
+        "CloudFront",
+        "CloudFormation",
+        "Cognito",
+        "DynamoDB",
+        "EC2",
+        "IAM",
+        "Lambda",
+        "MediaConvert",
+        "RDS",
+        "Route 53",
+        "S3",
+        "Secrets",
+        "Transcribe"
+      ]
+    },
+    {
+      "name": "Databases and Storage",
+      "level": "Intermediate",
+      "keywords": [
+        "MySQL",
+        "MongoDB",
+        "AWS RDS",
+        "AWS DynamoDB",
+        "Firebase",
+        "Cloudflare",
+        "AWS S3",
+        "Wasabi"
+      ]
+    },
+    {
+      "name": "Programming Languages",
+      "level": "Intermediate",
+      "keywords": [
+        "C",
+        "C#",
+        "C++",
+        "GML",
+        "GLSL",
+        "Java",
+        "JavaScript",
+        "Python",
+        "SQL",
+        "TypeScript",
+        "x86 Assembly",
+        "y86 Assembly"
+      ]
+    },
+    {
+      "name": "Testing",
+      "level": "Intermediate",
+      "keywords": [
+        "Chai",
+        "Jest",
+        "Mocha",
+        "Node Testing Library",
+        "React Testing Library",
+        "ts-mockito"
+      ]
+    },
+    {
+      "name": "Tools",
+      "level": "Intermediate",
+      "keywords": [
+        "Atlassian Products",
+        "AWS CLI",
+        "Docker",
+        "Git",
+        "Github",
+        "Microsoft Office",
+        "Postman",
+        "Visual Studio Code",
+        "IntelliJ IDEA"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Intermediate"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Game Development",
+      "keywords": [
+        "Gamemaker Studio: 2",
+        "Making extremely smart npcs",
+        "Building tools/engines for game development"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "John Fullmer, Development Manager of the Hanai Project\n  (208) 559-6949\n  jkf359@gmail.com",
+      "reference": "DESCRIPTION OF THE HANAI PROJECT"
+    },
+    {
+      "name": "David Pratt, IT Manager at J. Reuben Clark Law School\n  (801) 422-4768\n  prattd@law.byu.edu",
+      "reference": "something here"
+    },
+    {
+      "name": "Lee Jensen, Professor of Web Development\n  (801) 867-9611\n  lee@cs.byu.edu",
+      "reference": "\"It is with great pleasure that I recommend Peter Fullmer with my greatest confidence in their software development abilities. During the winter of 2023 Peter was enrolled in my course on Web Programming. Peter fully engaged in the coursework and produced mastery projects that went well above the expected quality produced by the rest of the class. Peter demonstrated mastery of building UI applications with HTML, CSS, JavaScript, and common web frameworks.\nTo support the front-end, Peter built complex back-end REST services powered by a cloud hosted database. This was all served up using their extensive knowledge of HTTP over TLS from servers that Peter managed.\n\n\"The culmination of Peter’s work was a capstone project that represented a full technology stack.\nIn competition with a class of hundreds of students, Peter placed first and earned the coveted Ghirardelli award.\n\n\"I heartily encourage you to give Peter Fullmer full consideration as Peter has not only the technical skills necessary to thrive in your organization, but Peter is easy to work with and would make a great member of any team. Please contact me if you have any questions concerning this recommendation.\""
+    }
+  ],
+  "projects": [
+    {
+      "name": "AI Drawing Game",
+      "startDate": "2023-01-01",
+      "endDate": "2023-04-21",
+      "description": "Developed an AI-powered, cross-platform multiplayer drawing game utilizing WebSocket, React.js and Node.js",
+      "highlights": ["Won 1st place against ~40 other projects"],
+      "url": "https://github.com/pf274/draw-ai-game"
+    },
+    {
+      "name": "Tank Game",
+      "startDate": "2019-01-01",
+      "endDate": "2019-10-07",
+      "description": "Developed a multiplayer battle royale tank game with smart NPCs and various tank classes.",
+      "highlights": [
+        "NPCs use dijkstra's algorithm to pathfind to the player",
+        "The Menus were made using my own menu engine",
+        "Inspired by the tank game from Wii Play"
+      ],
+      "url": "https://drive.google.com/file/d/1l8ZW9e8IFxvw-zD0xfUE9_yjHHgPGP1l/view?usp=sharing"
+    },
+    {
+      "name": "Physics Engine",
+      "startDate": "2016-03-01",
+      "endDate": "2017-04-19",
+      "description": "Developed a physics engine complete with circuits, newtonian gravity, conservation of energy, sound waves, etc.",
+      "highlights": [
+        "Collisions and basic gravity are handled by Gamemaker's built-in physics engine",
+        "Used actual physics equations for newtonian gravity",
+        "Inspired by Soup Toys and Powder Toy",
+        "This was my final project in my high school physics class"
+      ],
+      "url": "https://drive.google.com/file/d/1F8qbn4cj7KsKmkBsf8LyEVfi-xREEnpP/view?usp=drive_link"
+    },
+    {
+      "name": "Game Jam - Stealth Game",
+      "startDate": "2017-10-23",
+      "endDate": "2017-10-24",
+      "description": "Developed a stealth game with raytracing, pathfinding, and NPCs that patrol and chase the player.",
+      "highlights": [
+        "Won the game jam (it was with a group of five friends)",
+        "Used binary search for raytracing",
+        "Heavy usage of trigonometry for smooth gameplay",
+        "Completed in 24 hours"
+      ],
+      "url": "https://drive.google.com/file/d/1wkPgJ93qq7jB_2ut1Jm-XDUwJgs8jRMQ/view?usp=drive_link"
+    }
+  ]
+}
