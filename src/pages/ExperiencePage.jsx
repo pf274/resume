@@ -59,7 +59,7 @@ function Job({ job }) {
         </div>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography variant="subtitle1">{job.summary}</Typography>
+        <Typography variant="subtitle1" sx={{whiteSpace: 'pre-line'}}>{job.summary}</Typography>
         {job.highlights && job.highlights.length > 0 && (
           <ul>
             {job.highlights.map((highlight, index) => (

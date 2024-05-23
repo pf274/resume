@@ -36,7 +36,7 @@ export function Summary({ resume }) {
         <Typography variant="h5" sx={{ paddingBottom: "1em" }}>
           Summary
         </Typography>
-        <Typography>{resume.basics.summary}</Typography>
+        <Typography sx={{whiteSpace: 'pre-line'}}>{resume.basics.summary}</Typography>
       </div>
     </Card>
   );

@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getData } from "./getData";
+import { getData } from "./gistHelper";
 import { Resume } from "./Resume";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline, createTheme } from "@mui/material";
