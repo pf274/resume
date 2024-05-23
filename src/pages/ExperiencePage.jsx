@@ -4,7 +4,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Card,
   Typography,
 } from "@mui/material";
 
