@@ -28,7 +28,7 @@ export function Project({ info }) {
                 // }
                 return (
                   <li>
-                    <Typography>
+                    <Typography sx={{ textWrap: "balance" }}>
                       <a href={url}>{url}</a>
                     </Typography>
                   </li>
