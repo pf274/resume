@@ -8,6 +8,8 @@ import {
   Typography,
 } from "@mui/material";
 
+// TODO: Split these into separate files
+
 function Job({ job }) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";

@@ -4,6 +4,7 @@ import { InfoPage } from "./pages/InfoPage";
 import { EducationPage } from "./pages/EducationPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { ProjectsPage } from "./pages/ProjectsPage";
+import { ReferencesPage } from "./pages/ReferencesPage";
 
 export function Resume({ resume, style }) {
   const [page, setPage] = useState("info");
@@ -37,11 +38,13 @@ export function Resume({ resume, style }) {
         <Tab value="experience" label="Experience" />
         <Tab value="education" label="Education" />
         <Tab value="projects" label="Projects" />
+        <Tab value="references" label="References" />
       </Tabs>
       {page == "info" && <InfoPage resume={resume} />}
       {page == "education" && <EducationPage resume={resume} />}
       {page == "experience" && <ExperiencePage resume={resume} />}
       {page == "projects" && <ProjectsPage resume={resume} />}
+      {page == "references" && <ReferencesPage resume={resume} />}
     </div>
   );
 }
