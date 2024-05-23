@@ -2,10 +2,10 @@
   "basics": {
     "name": "Peter Fullmer",
     "label": "Full-Stack Web/App Developer",
-    "image": "https://i.imgur.com/moD7A4r.jpeg",
+    "image": "https://media1.giphy.com/media/tHIRLHtNwxpjIFqPdV/giphy.gif?cid=6c09b952npqc7hv0je8bmqkzyw2yq5fzb8r5dc6erputbk5m&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g",
     "email": "peterfullmer33@gmail.com",
     "phone": "(208) 929-8189",
-    "url": "https://pf274.github.io/",
+    "url": "https://pf274.github.io/resume",
     "summary": "Full-Stack Web/App Developer, utilizing years of programming experience to create cutting-edge solutions to modern-day problems.",
     "location": {
       "address": "",
@@ -34,7 +34,7 @@
       "url": "https://hanaiproject.com",
       "startDate": "2023-03-01",
       "endDate": "2025-01-01",
-      "summary": "Working as head developer to create a cutting-edge, AI-powered family history mobile app. Utilizing Expo Go (React Native), AWS Amplify, AWS DynamoDB, AWS S3, AWS Transcribe, AWS RDS, Cloudflare, Node.js, and Serverless.js.",
+      "summary": "\tWorking as head developer to create a cutting-edge, AI-powered family history mobile app.\n\n\tUtilizing Expo Go (React Native), AWS Amplify, AWS DynamoDB, AWS S3, AWS Transcribe, AWS RDS, Cloudflare, Node.js, and Serverless.js.",
       "highlights": ["Created the app", "Developed the app until its release"]
     },
     {
@@ -43,7 +43,7 @@
       "url": "https://law.byu.edu",
       "startDate": "2023-03-01",
       "endDate": "2025-01-01",
-      "summary": "Working primarily as backend developer to create and optimize services used at the law school. Utilizing Node.js, Serverless.js, MySQL, AWS DynamoDB, AWS S3, etc. \n\nManaging the law info website, which allows faculty and students to register for classes, see progress reports, enter and release grades, and view student and faculty directories. \n\nCreated the law media website, which allows faculty to upload class recordings and share them with students individually or in groups. Utilizing AWS Elemental MediaConvert to allow video streaming, AWS Transcribe to provide captions and transcriptions of each lecture, and React.js with Material UI to develop the frontend.",
+      "summary": "\tWorking primarily as a backend developer to create and optimize services used at the law school.\n\n\tUtilizing Node.js, Serverless.js, MySQL, AWS DynamoDB, AWS S3, etc.\n\n\tManaging the law info website, which allows faculty and students to register for classes, see progress reports, enter and release grades, and view student and faculty directories. \n\n\tCreated the law media website, which allows faculty to upload class recordings and share them with students individually or in groups. Utilizing AWS Elemental MediaConvert to allow video streaming, AWS Transcribe to provide captions and transcriptions of each lecture, and React.js with Material UI to develop the frontend.",
       "highlights": [
         "Created Media Sharing Website (AWS MediaConvert, AWS Transcribe, AWS S3, etc.)",
         "Wrote many mocha unit tests",
@@ -57,7 +57,7 @@
       "url": "https://law.byu.edu/it-services/resources/media-services",
       "startDate": "2021-12-01",
       "endDate": "2022-03-01",
-      "summary": "Collaborating with a team of eight student developers to manage class recordings used by law personnel.\n\nOversaw the production and broadcasting of weekly devotionals.",
+      "summary": "\tCollaborated with a team of eight student developers to manage class recordings used by law personnel.\n\n\tOversaw the production and broadcasting of weekly devotionals.",
       "highlights": [
         "Worked with faculty members to fix and set up equipment for lectures",
         "Managed requests to access recordings",
@@ -72,7 +72,7 @@
       "url": "https://www.churchofjesuschrist.org/",
       "startDate": "2019-10-08",
       "endDate": "2021-10-11",
-      "summary": "Worked as a Missionary to help people improve their lives both physically and spiritually. Served in Ciudad Juarez, Mexico, and Eugene Oregon, United States.",
+      "summary": "\tWorked as a Missionary to help people improve their lives both physically and spiritually.\n\n\tServed in Ciudad Juarez, Mexico, and Eugene Oregon, United States.",
       "highlights": [
         "Planned and carried out hundreds of service projects",
         "Learned to effectively listen and communicate",
@@ -259,24 +259,39 @@
   "references": [
     {
       "name": "John Fullmer, Development Manager of the Hanai Project\n  (208) 559-6949\n  jkf359@gmail.com",
-      "reference": "DESCRIPTION OF THE HANAI PROJECT"
+      "reference": " "
     },
     {
       "name": "David Pratt, IT Manager at J. Reuben Clark Law School\n  (801) 422-4768\n  prattd@law.byu.edu",
-      "reference": "something here"
+      "reference": " "
     },
     {
       "name": "Lee Jensen, Professor of Web Development\n  (801) 867-9611\n  lee@cs.byu.edu",
-      "reference": "\"It is with great pleasure that I recommend Peter Fullmer with my greatest confidence in their software development abilities. During the winter of 2023 Peter was enrolled in my course on Web Programming. Peter fully engaged in the coursework and produced mastery projects that went well above the expected quality produced by the rest of the class. Peter demonstrated mastery of building UI applications with HTML, CSS, JavaScript, and common web frameworks.\nTo support the front-end, Peter built complex back-end REST services powered by a cloud hosted database. This was all served up using their extensive knowledge of HTTP over TLS from servers that Peter managed.\n\n\"The culmination of Peter’s work was a capstone project that represented a full technology stack.\nIn competition with a class of hundreds of students, Peter placed first and earned the coveted Ghirardelli award.\n\n\"I heartily encourage you to give Peter Fullmer full consideration as Peter has not only the technical skills necessary to thrive in your organization, but Peter is easy to work with and would make a great member of any team. Please contact me if you have any questions concerning this recommendation.\""
+      "reference": "\"It is with great pleasure that I recommend Peter Fullmer with my greatest confidence in their software development abilities. During the winter of 2023 Peter was enrolled in my course on Web Programming. Peter fully engaged in the coursework and produced mastery projects that went well above the expected quality produced by the rest of the class. Peter demonstrated mastery of building UI applications with HTML, CSS, JavaScript, and common web frameworks.\n\nTo support the front-end, Peter built complex back-end REST services powered by a cloud hosted database. This was all served up using their extensive knowledge of HTTP over TLS from servers that Peter managed.\n\n\"The culmination of Peter’s work was a capstone project that represented a full technology stack.\nIn competition with a class of hundreds of students, Peter placed first and earned the coveted Ghirardelli award.\n\n\"I heartily encourage you to give Peter Fullmer full consideration as Peter has not only the technical skills necessary to thrive in your organization, but Peter is easy to work with and would make a great member of any team. Please contact me if you have any questions concerning this recommendation.\""
     }
   ],
   "projects": [
+    {
+      "name": "Resume Website",
+      "startDate": "2023-05-01",
+      "endDate": "2023-05-02",
+      "description": "Created a static resume website",
+      "highlights": [
+        "Created in two days",
+        "Built UI with React.js and Material UI",
+        "Hosted on Github Pages",
+        "Data stored in github gists for easy updating"
+      ],
+      "showcase": [],
+      "url": "https://pf274.github.io/resume"
+    },
     {
       "name": "AI Drawing Game",
       "startDate": "2023-01-01",
       "endDate": "2023-04-21",
       "description": "Developed an AI-powered, cross-platform multiplayer drawing game utilizing WebSocket, React.js and Node.js",
       "highlights": ["Won 1st place against ~40 other projects"],
+      "showcase": ["https://drive.google.com/uc?export=view&id=1bXFSLCCdVjYiqRNzj8usxj6orocMBcfI"],
       "url": "https://github.com/pf274/draw-ai-game"
     },
     {
@@ -289,6 +304,7 @@
         "The Menus were made using my own menu engine",
         "Inspired by the tank game from Wii Play"
       ],
+      "showcase": ["https://youtu.be/lmWa2KR0TXA"],
       "url": "https://drive.google.com/file/d/1l8ZW9e8IFxvw-zD0xfUE9_yjHHgPGP1l/view?usp=sharing"
     },
     {
@@ -302,6 +318,7 @@
         "Inspired by Soup Toys and Powder Toy",
         "This was my final project in my high school physics class"
       ],
+      "showcase": ["https://youtu.be/MAPaTlS72gI"],
       "url": "https://drive.google.com/file/d/1F8qbn4cj7KsKmkBsf8LyEVfi-xREEnpP/view?usp=drive_link"
     },
     {
@@ -315,7 +332,25 @@
         "Heavy usage of trigonometry for smooth gameplay",
         "Completed in 24 hours"
       ],
+      "showcase": [],
       "url": "https://drive.google.com/file/d/1wkPgJ93qq7jB_2ut1Jm-XDUwJgs8jRMQ/view?usp=drive_link"
+    },
+    {
+      "name": "Particle Designer",
+      "startDate": "2016-08-17",
+      "endDate": "2017-01-05",
+      "description": "Developed a particle designer tool for Gamemaker Studio 2.",
+      "highlights": [
+        "Used by over 1000 developers before becoming obsolete",
+        "Allowed developers to tweak and view particle effects in real-time",
+        "Exported to gml code for easy integration into games",
+        "Showcased on Gamemaker's marketplace"
+      ],
+      "showcase": [
+        "https://marketplace.gamemaker.io/assets/7152/particle-designer",
+        "https://youtu.be/wu_O6VQ5guU"
+      ],
+      "url": "https://drive.google.com/file/d/1GWg_1SQhyHEzgEk2lS0QRUzgMitbNQ81/view?usp=drive_link"
     }
   ]
 }
