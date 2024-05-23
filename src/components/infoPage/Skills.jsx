@@ -3,7 +3,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Card,
   Chip,
   Divider,
   Typography,
@@ -12,9 +11,9 @@ import {
   colorByPercentage,
   darken,
   lighten,
-  randomColor,
 } from "../../colorGen";
 import { useTheme } from "@emotion/react";
+import { ResumeCard } from "../ResumeCard";
 
 const levelsDark = {
   beginner: "LightSalmon",
@@ -27,7 +26,7 @@ const levelsLight = {
   beginner: "darkorange",
   intermediate: "darkblue",
   advanced: "darkgreen",
-  expert: "darkpurple",
+  expert: "#CC00BB",
 };
 
 function SkillSection({ skill }) {
@@ -90,25 +89,18 @@ function SkillSection({ skill }) {
   );
 }
 
-export function Skills({ resume }) {
-  if (!resume.skills || resume.skills.length == 0) {
+export function Skills({ skills }) {
+  if (!skills || skills.length == 0) {
     return <div />;
   }
   return (
-    <Card
-      sx={{
-        padding: "1.5em",
-        display: "flex",
-        flexDirection: "column",
-        textAlign: "center",
-      }}
-    >
+    <ResumeCard style={{display: 'flex', flexDirection: 'column', textAlign: 'center'}}>
       <Typography variant="h5" sx={{ marginBottom: "1em" }}>
         Skills
       </Typography>
-      {resume.skills.map((skill, index) => (
+      {skills.map((skill, index) => (
         <SkillSection key={index} skill={skill} />
       ))}
-    </Card>
+    </ResumeCard>
   );
 }

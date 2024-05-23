@@ -1,12 +1,13 @@
-import { Avatar, Card, Typography } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
+import { TypographyW } from "../TypographyW";
+import { ResumeCard } from "../ResumeCard";
 
-export function Summary({ resume }) {
+export function Summary({ basics }) {
   return (
-    <Card
-      sx={{
+    <ResumeCard
+      style={{
         flex: 1,
         minWidth: "300px",
-        padding: "1.5em",
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
@@ -14,10 +15,10 @@ export function Summary({ resume }) {
         gap: "1em",
       }}
     >
-      {resume.basics.image && (
+      {basics.image && (
         <Avatar
           alt="Profile Picture"
-          src={resume.basics.image}
+          src={basics.image}
           style={{
             width: "11em",
             height: "11em",
@@ -36,8 +37,8 @@ export function Summary({ resume }) {
         <Typography variant="h5" sx={{ paddingBottom: "1em" }}>
           Summary
         </Typography>
-        <Typography sx={{whiteSpace: 'pre-line'}}>{resume.basics.summary}</Typography>
+        <TypographyW>{basics.summary}</TypographyW>
       </div>
-    </Card>
+    </ResumeCard>
   );
 }

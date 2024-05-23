@@ -1,18 +1,11 @@
-import { Card, Typography } from "@mui/material";
 import { ContactInformation } from "../components/infoPage/ContactInformation";
 import { Summary } from "../components/infoPage/Summary";
 import { Skills } from "../components/infoPage/Skills";
+import { Page } from "../components/Page";
 
 export function InfoPage({ resume }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "2em",
-        flexWrap: "wrap",
-      }}
-    >
+    <Page>
       <div
         style={{
           display: "flex",
@@ -23,10 +16,10 @@ export function InfoPage({ resume }) {
           justifyContent: "center",
         }}
       >
-        <ContactInformation resume={resume} />
-        <Summary resume={resume} />
+        <ContactInformation basics={resume.basics} />
+        <Summary basics={resume.basics} />
       </div>
-      <Skills resume={resume} />
-    </div>
+      <Skills skills={resume.skills} />
+    </Page>
   );
 }

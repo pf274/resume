@@ -33,12 +33,28 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+
+.resume-date-range {
+  text-align: right;
+  margin-right: 1em;
+}
+
+.resume-accordion-header-left {
+  flex: 1;
+}
+
+.resume-accordion-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 1em;
+  column-gap: 1em;
+  width: 100%;
+  align-items: center;
+  margin-right: 1em;
 }
 
 @media (max-width: 600px) {
@@ -48,5 +64,22 @@
   .MuiTabs-flexContainer {
     margin-top: 2em;
     margin-bottom: 2em;
+  }
+
+}
+
+@media (max-width: 1000px) {
+  .accordion-break {
+    display: none;
+  }
+  .accordionTitles {
+    flex-direction: column;
+  }
+  .resume-date-range {
+    text-align: left;
+  }
+  .resume-accordion-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

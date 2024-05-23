@@ -1,29 +1,43 @@
-import { Tab, Tabs, Typography } from "@mui/material";
+import { Button, Tab, Tabs, Typography } from "@mui/material";
 import { useState } from "react";
 import { InfoPage } from "./pages/InfoPage";
 import { EducationPage } from "./pages/EducationPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { ReferencesPage } from "./pages/ReferencesPage";
+import { useThemeContext } from "./contexts/ThemeContext";
 
-export function Resume({ resume, style }) {
+export function Resume({ resume }) {
   const [page, setPage] = useState("info");
+  const { currentTheme, setTheme } = useThemeContext();
+  const isLight = currentTheme.palette.mode === "light";
+
+  function handleToggleTheme() {
+    if (isLight) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  }
   if (Object.keys(resume).length == 0) {
     return <div />;
   }
   return (
-    <div style={{ flex: 1, padding: "1em", margin: "1em" }}>
+    <div style={{ flex: 1, margin: "2em", display: 'flex', flexDirection: 'column' }}>
       <Typography style={{ textAlign: "center" }} variant="h2">
         Peter Fullmer
       </Typography>
       {resume?.basics?.label && (
         <Typography
-          style={{ textAlign: "center", margin: "0.5em" }}
-          variant="h4"
+        style={{ textAlign: "center", margin: "0.5em" }}
+        variant="h4"
         >
           {resume.basics.label}
         </Typography>
       )}
+      <div style={{alignSelf: 'center'}}>
+        <Button value={isLight} onClick={handleToggleTheme} color="inherit">Toggle Theme</Button>
+      </div>
       <Tabs
         value={page}
         onChange={(_, newValue) => setPage(newValue)}
