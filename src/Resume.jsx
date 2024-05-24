@@ -9,7 +9,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { useResumeContext } from "./contexts/ResumeContext";
 
 export function Resume() {
-  const {resume, page, setPage} = useResumeContext();
+  const {resume, page, setPage, authToken, finishEditing} = useResumeContext();
   const { currentTheme, setTheme } = useThemeContext();
   const isLight = currentTheme.palette.mode === "light";
 
@@ -38,7 +38,7 @@ export function Resume() {
           Toggle Theme
         </Button>
       </div>
-      <div className="showOnHover" onClick={() => setPage('login')} />
+      {authToken ? <Button style={{position: 'absolute', right: '1em', top: '1em'}} variant="outlined" onClick={finishEditing}>Finish Editing</Button> : <div className="showOnHover" onClick={() => setPage('login')} />}
       <Tabs
         value={page}
         onChange={(_, newValue) => setPage(newValue)}

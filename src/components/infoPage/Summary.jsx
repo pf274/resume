@@ -1,6 +1,6 @@
 import { Avatar, Typography } from "@mui/material";
-import { TypographyW } from "../TypographyW";
 import { ResumeCard } from "../ResumeCard";
+import { EditableTypography } from "../EditableTypography";
 
 export function Summary({ basics }) {
   return (
@@ -37,7 +37,7 @@ export function Summary({ basics }) {
         <Typography variant="h5" sx={{ paddingBottom: "1em" }}>
           Summary
         </Typography>
-        <TypographyW>{basics.summary}</TypographyW>
+        <EditableTypography path="basics.summary" value={basics.summary} multiline textFieldStyle={{width: '100%'}} placeholder="summary" />
       </div>
     </ResumeCard>
   );

@@ -15,6 +15,7 @@ export function InfoPage({ resume }) {
           flexWrap: "wrap-reverse",
           justifyContent: "center",
         }}
+        
       >
         <ContactInformation basics={resume.basics} />
         <Summary basics={resume.basics} />

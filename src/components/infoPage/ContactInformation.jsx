@@ -3,6 +3,7 @@ import { Facebook, LinkedIn } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 import { randomColor } from "../../colorGen";
 import { ResumeCard } from "../ResumeCard";
+import { EditableTypography } from "../EditableTypography";
 
 const icons = {
   linkedin: LinkedIn,
@@ -21,10 +22,15 @@ export function ContactInformation({ basics }) {
       <Typography variant="h5" sx={{ paddingBottom: "1em" }}>
         Contact Information
       </Typography>
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.33em" }}>
-        <Typography>{basics.email}</Typography>
-        <Typography>{basics.phone}</Typography>
-        <Typography>{`${basics.location.city} ${basics.location.region}, United States`}</Typography>
+      <div style={{ display: "flex", flexDirection: "column", gap: "0.33em", alignItems: 'center' }}>
+        <EditableTypography value={basics.email} path="basics.email" placeholder="email address" />
+        <EditableTypography value={basics.phone} path="basics.phone" placeholder="phone"/>
+        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
+          <EditableTypography value={basics.location.city} path="basics.location.city" placeholder="city"/>
+          <div style={{width: '0.6ch'}} />
+          <EditableTypography value={basics.location.region} path="basics.location.region" placeholder="state" />
+          <Typography>{`, United States`}</Typography>
+        </div>
         {basics.profiles.length > 0 && (
           <div>
             {basics.profiles.map((profile, index) => {

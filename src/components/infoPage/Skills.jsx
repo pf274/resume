@@ -14,22 +14,10 @@ import {
 } from "../../colorGen";
 import { useTheme } from "@emotion/react";
 import { ResumeCard } from "../ResumeCard";
+import { EditableSkillLevel } from "./EditableSkillLevel";
+import { EditableTypography } from "../EditableTypography";
 
-const levelsDark = {
-  beginner: "LightSalmon",
-  intermediate: "LightSkyBlue",
-  advanced: "LightGreen",
-  expert: "Plum",
-};
-
-const levelsLight = {
-  beginner: "darkorange",
-  intermediate: "darkblue",
-  advanced: "darkgreen",
-  expert: "#CC00BB",
-};
-
-function SkillSection({ skill }) {
+function SkillSection({ skill, index }) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
   return (
@@ -45,23 +33,8 @@ function SkillSection({ skill }) {
             textAlign: "left",
           }}
         >
-          {skill.level && (
-            <Chip
-              label={skill.level}
-              style={{
-                backgroundColor: Object.keys(levelsDark).includes(
-                  skill.level.toLowerCase()
-                )
-                  ? isDark
-                    ? levelsDark[skill.level.toLowerCase()]
-                    : levelsLight[skill.level.toLowerCase()]
-                  : undefined,
-                color: isDark ? "black" : "white",
-                fontWeight: "bold",
-              }}
-            />
-          )}
-          <Typography>{skill.name}</Typography>
+          {skill.level && <EditableSkillLevel level={skill.level} path={`skills.${index}.level`} />}
+          <EditableTypography value={skill.name} placeholder="Skill Category" path={`skills.${index}.name`}/>
         </div>
       </AccordionSummary>
       <Divider />
@@ -99,7 +72,7 @@ export function Skills({ skills }) {
         Skills
       </Typography>
       {skills.map((skill, index) => (
-        <SkillSection key={index} skill={skill} />
+        <SkillSection key={index} skill={skill} index={index} />
       ))}
     </ResumeCard>
   );
