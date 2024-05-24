@@ -58,7 +58,8 @@ export function EditableSkillLevel({level, path}) {
       }
       target = target[part];
     }
-    target[pathParts[pathParts.length - 1]] = newSkillLevel;
+    const lastPart = Number.isNaN(Number(pathParts[pathParts.length - 1])) ? pathParts[pathParts.length - 1] : Number(pathParts[pathParts.length - 1]);
+    target[lastPart] = newSkillLevel;
     setLevel(newSkillLevel);
     setResume(newResume);
   }

@@ -3,23 +3,15 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Chip,
   Divider,
   Typography,
 } from "@mui/material";
-import {
-  colorByPercentage,
-  darken,
-  lighten,
-} from "../../colorGen";
-import { useTheme } from "@emotion/react";
 import { ResumeCard } from "../ResumeCard";
 import { EditableSkillLevel } from "./EditableSkillLevel";
 import { EditableTypography } from "../EditableTypography";
+import { SkillKeywords } from "./SkillKeywords";
 
 function SkillSection({ skill, index }) {
-  const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   return (
     <Accordion variant="outlined">
       <AccordionSummary expandIcon={<ArrowDropDown />}>
@@ -39,24 +31,7 @@ function SkillSection({ skill, index }) {
       </AccordionSummary>
       <Divider />
       <AccordionDetails>
-        {skill.keywords.map((keyword, index) => (
-          <Chip
-            key={index}
-            label={keyword}
-            sx={{
-              margin: "0.25em",
-              backgroundColor: isDark
-                ? lighten(
-                    colorByPercentage(index / (skill.keywords.length - 1))
-                  )
-                : darken(
-                    colorByPercentage(index / (skill.keywords.length - 1))
-                  ),
-              color: isDark ? "black" : "white",
-              fontWeight: "bold",
-            }}
-          />
-        ))}
+        <SkillKeywords path={`skills.${index}.keywords`} keywords={skill.keywords} />
       </AccordionDetails>
     </Accordion>
   );

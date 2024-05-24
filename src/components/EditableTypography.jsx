@@ -20,7 +20,8 @@ export function EditableTypography({ value, path, placeholder, typographyStyle =
       }
       target = target[part];
     }
-    target[pathParts[pathParts.length - 1]] = newValue;
+    const lastPart = Number.isNaN(Number(pathParts[pathParts.length - 1])) ? pathParts[pathParts.length - 1] : Number(pathParts[pathParts.length - 1]);
+    target[lastPart] = newValue;
     setValue(newValue);
     setResume(newResume);
   }
