@@ -23,20 +23,19 @@ export function Resume({ resume }) {
     return <div />;
   }
   return (
-    <div style={{ flex: 1, margin: "2em", display: 'flex', flexDirection: 'column' }}>
+    <div style={{ flex: 1, padding: "2em", display: "flex", flexDirection: "column" }}>
       <Typography style={{ textAlign: "center" }} variant="h2">
         Peter Fullmer
       </Typography>
       {resume?.basics?.label && (
-        <Typography
-        style={{ textAlign: "center", margin: "0.5em" }}
-        variant="h4"
-        >
+        <Typography style={{ textAlign: "center", margin: "0.5em" }} variant="h4">
           {resume.basics.label}
         </Typography>
       )}
-      <div style={{alignSelf: 'center'}}>
-        <Button value={isLight} onClick={handleToggleTheme} color="inherit">Toggle Theme</Button>
+      <div style={{ alignSelf: "center" }}>
+        <Button value={isLight} onClick={handleToggleTheme} color="inherit">
+          Toggle Theme
+        </Button>
       </div>
       <Tabs
         value={page}
