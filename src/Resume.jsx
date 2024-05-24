@@ -1,14 +1,15 @@
 import { Button, Tab, Tabs, Typography } from "@mui/material";
-import { useState } from "react";
 import { InfoPage } from "./pages/InfoPage";
 import { EducationPage } from "./pages/EducationPage";
 import { ExperiencePage } from "./pages/ExperiencePage";
 import { ProjectsPage } from "./pages/ProjectsPage";
 import { ReferencesPage } from "./pages/ReferencesPage";
 import { useThemeContext } from "./contexts/ThemeContext";
+import { LoginPage } from "./pages/LoginPage";
+import { useResumeContext } from "./contexts/ResumeContext";
 
-export function Resume({ resume }) {
-  const [page, setPage] = useState("info");
+export function Resume() {
+  const {resume, page, setPage} = useResumeContext();
   const { currentTheme, setTheme } = useThemeContext();
   const isLight = currentTheme.palette.mode === "light";
 
@@ -37,6 +38,7 @@ export function Resume({ resume }) {
           Toggle Theme
         </Button>
       </div>
+      <div className="showOnHover" onClick={() => setPage('login')} />
       <Tabs
         value={page}
         onChange={(_, newValue) => setPage(newValue)}
@@ -58,6 +60,7 @@ export function Resume({ resume }) {
       {page == "experience" && <ExperiencePage resume={resume} />}
       {page == "projects" && <ProjectsPage resume={resume} />}
       {page == "references" && <ReferencesPage resume={resume} />}
+      {page == 'login' && <LoginPage />}
     </div>
   );
 }

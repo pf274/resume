@@ -57,6 +57,22 @@
   margin-right: 1em;
 }
 
+.showOnHover {
+  background-color: transparent;
+  width: 4em;
+  height: 4em;
+  border: 2px solid transparent;
+  border-radius: 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.showOnHover:hover {
+  /* border-color: red; */
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   .MuiTabs-indicator {
     opacity: 0;

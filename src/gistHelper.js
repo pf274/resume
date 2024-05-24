@@ -1,7 +1,7 @@
 // import { Octokit } from "octokit";
+import CryptoJS from "crypto-js";
 
 const gistId = '30202f9981c6068164bef7fec96a5c9d';
-
 
 export async function getData() {
   const response = await fetch(
@@ -31,4 +31,15 @@ export async function getData() {
 //   })
 // }
 
-getData();
+export function authenticate(field1, field2) {
+  try {
+    const bytes = CryptoJS.AES.decrypt(field2, field1);
+    const decryptedString = bytes.toString(CryptoJS.enc.Utf8);
+    if (decryptedString.charAt(0) != '|' || decryptedString.charAt(decryptedString.length - 1) != '|') {
+      return null;
+    }
+    return decryptedString.slice(1, decryptedString.length - 1);
+  } catch (err) {
+    return null;
+  }
+}

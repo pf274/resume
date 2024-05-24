@@ -21,16 +21,16 @@ export function Project({ info }) {
           <div>
             <Typography variant="h6">Other Links</Typography>
             <ul>
-              {info.showcase.map((url) => {
+              {info.showcase.map((details) => {
                 // const isYoutubeLink = url.includes("youtube.com");
                 // if (isYoutubeLink) {
                 //   return <iframe src={url} title={info.name} />;
                 // }
                 return (
-                  <li>
+                  <li key={details.link}>
                     <Typography sx={{ textWrap: "balance" }}>
-                      <a style={{ textWrap: "balance" }} href={url}>
-                        {url}
+                      <a style={{ textWrap: "balance" }} href={details.link}>
+                        {details.name}
                       </a>
                     </Typography>
                   </li>

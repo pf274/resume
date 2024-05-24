@@ -291,7 +291,13 @@
       "endDate": "2023-04-21",
       "description": "Developed an AI-powered, cross-platform multiplayer drawing game utilizing WebSocket, React.js and Node.js",
       "highlights": ["Won 1st place against ~40 other projects"],
-      "showcase": ["https://drive.google.com/uc?export=view&id=1bXFSLCCdVjYiqRNzj8usxj6orocMBcfI"],
+      "showcase": [
+        {
+          "link": "https://drive.google.com/uc?export=view&id=1bXFSLCCdVjYiqRNzj8usxj6orocMBcfI",
+          "name": "Download",
+          "type": "link"
+        }
+      ],
       "url": "https://github.com/pf274/draw-ai-game"
     },
     {
@@ -304,7 +310,13 @@
         "The Menus were made using my own menu engine",
         "Inspired by the tank game from Wii Play"
       ],
-      "showcase": ["https://youtu.be/lmWa2KR0TXA"],
+      "showcase": [
+        {
+          "link": "https://youtu.be/lmWa2KR0TXA",
+          "name": "Video",
+          "type": "video"
+        }
+      ],
       "url": "https://drive.google.com/file/d/1l8ZW9e8IFxvw-zD0xfUE9_yjHHgPGP1l/view?usp=sharing"
     },
     {
@@ -318,7 +330,13 @@
         "Inspired by Soup Toys and Powder Toy",
         "This was my final project in my high school physics class"
       ],
-      "showcase": ["https://youtu.be/MAPaTlS72gI"],
+      "showcase": [
+        {
+          "link": "https://youtu.be/MAPaTlS72gI",
+          "name": "Video",
+          "type": "video"
+        }
+      ],
       "url": "https://drive.google.com/file/d/1F8qbn4cj7KsKmkBsf8LyEVfi-xREEnpP/view?usp=drive_link"
     },
     {
@@ -347,8 +365,16 @@
         "Showcased on Gamemaker's marketplace"
       ],
       "showcase": [
-        "https://marketplace.gamemaker.io/assets/7152/particle-designer",
-        "https://youtu.be/wu_O6VQ5guU"
+        {
+          "link": "https://marketplace.gamemaker.io/assets/7152/particle-designer",
+          "name": "Asset in Gamemaker Marketplace",
+          "type": "link"
+        },
+        {
+          "link": "https://youtu.be/wu_O6VQ5guU",
+          "name": "Video",
+          "type": "video"
+        }
       ],
       "url": "https://drive.google.com/file/d/1GWg_1SQhyHEzgEk2lS0QRUzgMitbNQ81/view?usp=drive_link"
     }
