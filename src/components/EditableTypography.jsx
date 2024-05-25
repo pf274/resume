@@ -29,7 +29,7 @@ export function EditableTypography({
         width: multiline ? undefined : `${Math.max(placeholder?.length || 0, val.length) + 10}ch`,
         ...textFieldStyle,
       }}
-      onSelect={(event) => event.stopPropagation()}
+      onClick={(event) => event.stopPropagation()}
     />
   ) : (
     <TypographyW
