@@ -7,9 +7,12 @@ import { ReferencesPage } from "./pages/ReferencesPage";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { LoginPage } from "./pages/LoginPage";
 import { useResumeContext } from "./contexts/ResumeContext";
+import { ConfirmChangesPage } from "./pages/ConfirmChangesPage";
+import { stringifyResume } from "./gistHelper";
 
 export function Resume() {
-  const {resume, page, setPage, authToken, finishEditing} = useResumeContext();
+  const { resume, page, setPage, authToken, clearChanges, setAuth, cancelEdit } =
+    useResumeContext();
   const { currentTheme, setTheme } = useThemeContext();
   const isLight = currentTheme.palette.mode === "light";
 
@@ -38,7 +41,27 @@ export function Resume() {
           Toggle Theme
         </Button>
       </div>
-      {authToken ? <Button style={{position: 'absolute', right: '1em', top: '1em'}} variant="outlined" onClick={finishEditing}>Finish Editing</Button> : <div className="showOnHover" onClick={() => setPage('login')} />}
+      {authToken ? (
+        <div
+          style={{
+            position: "absolute",
+            right: "1em",
+            top: "1em",
+            display: "flex",
+            flexDirection: "row",
+            gap: "1em",
+          }}
+        >
+          <Button variant="outlined" onClick={cancelEdit}>
+            Cancel
+          </Button>
+          <Button variant="outlined" onClick={() => setPage("confirmChanges")}>
+            Review Changes
+          </Button>
+        </div>
+      ) : (
+        <div className="showOnHover" onClick={() => setPage("login")} />
+      )}
       <Tabs
         value={page}
         onChange={(_, newValue) => setPage(newValue)}
@@ -60,7 +83,8 @@ export function Resume() {
       {page == "experience" && <ExperiencePage resume={resume} />}
       {page == "projects" && <ProjectsPage resume={resume} />}
       {page == "references" && <ReferencesPage resume={resume} />}
-      {page == 'login' && <LoginPage />}
+      {page == "login" && <LoginPage />}
+      {page == "confirmChanges" && <ConfirmChangesPage />}
     </div>
   );
 }

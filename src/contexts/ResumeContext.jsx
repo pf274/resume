@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { getData } from "../gistHelper";
+import { getData, stringifyResume } from "../gistHelper";
 
 const ResumeContext = createContext();
 
@@ -8,16 +8,27 @@ export function ResumeContextProvider({ children }) {
   const editedResume = useRef({});
   const [authToken, setAuthToken] = useState(false);
 
-  function finishEditing() {
+  async function finishEditing() {
     console.log("Finish editing!");
     setAuthToken(false);
     localStorage.removeItem("authToken");
     editedResume.current = resume;
   }
 
+  function clearChanges() {
+    editedResume.current = resume;
+    // localStorage.removeItem("authToken");
+    window.location.reload();
+  }
+
+  function cancelEdit() {
+    localStorage.removeItem("authToken");
+    window.location.reload();
+  }
+
   function replace(newData, path) {
     const pathParts = path.split(".");
-    const resumeCopy = Object.assign({}, resume);
+    const resumeCopy = JSON.parse(JSON.stringify(resume));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -35,7 +46,7 @@ export function ResumeContextProvider({ children }) {
 
   function moveUp(path) {
     const pathParts = path.split(".");
-    const resumeCopy = Object.assign({}, resume);
+    const resumeCopy = JSON.parse(JSON.stringify(resume));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -67,7 +78,7 @@ export function ResumeContextProvider({ children }) {
    */
   function moveDown(path) {
     const pathParts = path.split(".");
-    const resumeCopy = Object.assign({}, resume);
+    const resumeCopy = JSON.parse(JSON.stringify(resume));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -99,7 +110,7 @@ export function ResumeContextProvider({ children }) {
    */
   function remove(path) {
     const pathParts = path.split(".");
-    const resumeCopy = Object.assign({}, resume);
+    const resumeCopy = JSON.parse(JSON.stringify(resume));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -126,7 +137,7 @@ export function ResumeContextProvider({ children }) {
    */
   function add(newData, path) {
     const pathParts = path.split(".");
-    const resumeCopy = Object.assign({}, resume);
+    const resumeCopy = JSON.parse(JSON.stringify(resume));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length; i++) {
       let part = pathParts[i];
@@ -170,6 +181,9 @@ export function ResumeContextProvider({ children }) {
         moveUp,
         moveDown,
         replace,
+        editedResume,
+        clearChanges,
+        cancelEdit,
       }}
     >
       {children}

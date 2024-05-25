@@ -24,6 +24,7 @@
     "octokit": "^4.0.2",
     "prompts": "^2.4.2",
     "react": "^18.2.0",
+    "react-diff-viewer-refined": "^3.2.6",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
