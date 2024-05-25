@@ -3,44 +3,33 @@ import { colorByPercentage, darken, lighten } from "../../colorGen";
 import { EditableSkillKeyword } from "./EditableSkillKeyword";
 import { useState } from "react";
 import { useResumeContext } from "../../contexts/ResumeContext";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+} from "@mui/material";
 
-
-export function SkillKeywords({keywords, path}) {
+export function SkillKeywords({ keywords, path }) {
   const [kwds, setKeywords] = useState(keywords);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [newKeyword, setNewKeyword] = useState("");
   const [menuVisible, setMenuVisible] = useState(false);
-  const {authToken, resume, setResume} = useResumeContext();
+  const { authToken, remove, add, replace } = useResumeContext();
   const theme = useTheme();
-  const isDark = theme.palette.mode == 'dark';
+  const isDark = theme.palette.mode == "dark";
 
   function deleteKeyword() {
+    remove(`${path}.${selectedIndex}`);
     const newKeywords = kwds.filter((keyword, index) => index !== selectedIndex);
     setKeywords(newKeywords);
     setSelectedIndex(0);
     setMenuVisible(false);
-    /*
-    const newResume = Object.assign({}, resume);
-    if (!path) {
-      throw new Error("Must define a path for an editable skill level component");
-    }
-    const pathParts = path.split(".");
-    let target = newResume;
-    for (let i = 0; i < pathParts.length - 1; i++) {
-      let part = pathParts[i];
-      if (!isNaN(part)) {
-        part = Number(part);
-      }
-      target = target[part];
-    }
-    const lastPart = Number.isNaN(Number(pathParts[pathParts.length - 1])) ? pathParts[pathParts.length - 1] : Number(pathParts[pathParts.length - 1]);
-    target.splice(lastPart, 1);
-    setResume(newResume);
-    */
   }
   function addKeyword() {
-
+    add("new keyword", path);
   }
 
   function handleClose(event) {
@@ -54,15 +43,17 @@ export function SkillKeywords({keywords, path}) {
     setMenuVisible(true);
   }
 
-  return <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
-    {kwds.map((keyword, index) => {
-      const keywordColor = isDark
-        ? lighten(
-            colorByPercentage(index / (kwds.length - 1))
-          )
-        : darken(
-            colorByPercentage(index / (kwds.length - 1))
-          );
+  function handleEditKeyword(event) {
+    setNewKeyword(event.target.value);
+    replace(event.target.value, `${path}.${selectedIndex}`);
+  }
+
+  return (
+    <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
+      {kwds.map((keyword, index) => {
+        const keywordColor = isDark
+          ? lighten(colorByPercentage(index / (kwds.length - 1)))
+          : darken(colorByPercentage(index / (kwds.length - 1)));
         return (
           <EditableSkillKeyword
             key={index}
@@ -72,22 +63,29 @@ export function SkillKeywords({keywords, path}) {
               margin: "0.25em",
               backgroundColor: keywordColor,
               color: isDark ? "black" : "white",
-              fontWeight: "bold"
+              fontWeight: "bold",
             }}
             index={index}
             onSelect={showMenu}
           />
         );
       })}
-      {authToken && <Dialog open={menuVisible} onClose={handleClose}>
-        <DialogTitle>Edit Skill Keyword</DialogTitle>
-        <DialogContent>
-          <TextField value={newKeyword} onChange={(event) => setNewKeyword(event.target.value)}/>
-        </DialogContent>
-        <DialogActions>
-          <Button color="warning" onClick={deleteKeyword}>Delete</Button>
-          <Button color="primary" disabled={newKeyword.length == 0}>Save</Button>
-        </DialogActions>
-      </Dialog>}
-  </div>
+      {authToken && (
+        <Dialog open={menuVisible} onClose={handleClose}>
+          <DialogTitle>Edit Skill Keyword</DialogTitle>
+          <DialogContent>
+            <TextField value={newKeyword} onChange={handleEditKeyword} />
+          </DialogContent>
+          <DialogActions>
+            <Button color="warning" onClick={deleteKeyword}>
+              Delete
+            </Button>
+            <Button color="primary" onClick={handleClose}>
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+      )}
+    </div>
+  );
 }

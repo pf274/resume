@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { useResumeContext } from "../../contexts/ResumeContext"
+import { useResumeContext } from "../../contexts/ResumeContext";
 import { Button, Chip, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 
@@ -17,15 +17,13 @@ const levelsLight = {
   expert: "#CC00BB",
 };
 
-export function EditableSkillLevel({level, path}) {
+export function EditableSkillLevel({ level, path }) {
   const [lvl, setLevel] = useState(level);
   const [anchorEl, setAnchorEl] = useState(null);
-  const {authToken, resume, setResume} = useResumeContext();
+  const { authToken, replace } = useResumeContext();
   const theme = useTheme();
-  const isDark = theme.palette.mode == 'dark';
-  const levelColor = Object.keys(levelsDark).includes(
-    level.toLowerCase()
-  )
+  const isDark = theme.palette.mode == "dark";
+  const levelColor = Object.keys(levelsDark).includes(level.toLowerCase())
     ? isDark
       ? levelsDark[level.toLowerCase()]
       : levelsLight[level.toLowerCase()]
@@ -45,42 +43,37 @@ export function EditableSkillLevel({level, path}) {
     const newSkillLevel = event.target.innerText;
     setAnchorEl(null);
     event.stopPropagation();
-    const newResume = Object.assign({}, resume);
     if (!path) {
       throw new Error("Must define a path for an editable skill level component");
     }
-    const pathParts = path.split(".");
-    let target = newResume;
-    for (let i = 0; i < pathParts.length - 1; i++) {
-      let part = pathParts[i];
-      if (!isNaN(part)) {
-        part = Number(part);
-      }
-      target = target[part];
-    }
-    const lastPart = Number.isNaN(Number(pathParts[pathParts.length - 1])) ? pathParts[pathParts.length - 1] : Number(pathParts[pathParts.length - 1]);
-    target[lastPart] = newSkillLevel;
+    replace(newSkillLevel, path);
     setLevel(newSkillLevel);
-    setResume(newResume);
   }
-  return (
-    authToken ? (
-      <div>
-        <Button onClick={handleToggleMenu} style={{color: levelColor}}>{lvl}</Button>
-        <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} onClose={handleClose} style={{zIndex: 1000}}>
-          <MenuItem onClick={updateSkillLevel}>Beginner</MenuItem>
-          <MenuItem onClick={updateSkillLevel}>Intermediate</MenuItem>
-          <MenuItem onClick={updateSkillLevel}>Advanced</MenuItem>
-          <MenuItem onClick={updateSkillLevel}>Expert</MenuItem>
-        </Menu>
-      </div>
-    ) : (<Chip
+  return authToken ? (
+    <div>
+      <Button onClick={handleToggleMenu} style={{ color: levelColor }}>
+        {lvl}
+      </Button>
+      <Menu
+        open={Boolean(anchorEl)}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        style={{ zIndex: 1000 }}
+      >
+        <MenuItem onClick={updateSkillLevel}>Beginner</MenuItem>
+        <MenuItem onClick={updateSkillLevel}>Intermediate</MenuItem>
+        <MenuItem onClick={updateSkillLevel}>Advanced</MenuItem>
+        <MenuItem onClick={updateSkillLevel}>Expert</MenuItem>
+      </Menu>
+    </div>
+  ) : (
+    <Chip
       label={lvl}
       style={{
         backgroundColor: levelColor,
         color: isDark ? "black" : "white",
         fontWeight: "bold",
       }}
-    />)
-  )
+    />
+  );
 }

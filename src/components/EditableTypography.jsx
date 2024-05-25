@@ -3,27 +3,21 @@ import { useResumeContext } from "../contexts/ResumeContext";
 import { useState } from "react";
 import { TypographyW } from "./TypographyW";
 
-export function EditableTypography({ value, path, placeholder, typographyStyle = {}, textFieldStyle = {}, typographyVariant, color, multiline = false }) {
+export function EditableTypography({
+  value,
+  path,
+  placeholder,
+  typographyStyle = {},
+  textFieldStyle = {},
+  typographyVariant,
+  color,
+  multiline = false,
+}) {
   const [val, setValue] = useState(value);
-  const { authToken, resume, setResume } = useResumeContext();
+  const { authToken, replace } = useResumeContext();
   function updateValue(newValue) {
-    const newResume = Object.assign({}, resume);
-    if (!path) {
-      throw new Error("Must define a path for an editable typography component");
-    }
-    const pathParts = path.split(".");
-    let target = newResume;
-    for (let i = 0; i < pathParts.length - 1; i++) {
-      let part = pathParts[i];
-      if (!isNaN(part)) {
-        part = Number(part);
-      }
-      target = target[part];
-    }
-    const lastPart = Number.isNaN(Number(pathParts[pathParts.length - 1])) ? pathParts[pathParts.length - 1] : Number(pathParts[pathParts.length - 1]);
-    target[lastPart] = newValue;
+    replace(newValue, path);
     setValue(newValue);
-    setResume(newResume);
   }
   return authToken ? (
     <TextField
@@ -33,11 +27,17 @@ export function EditableTypography({ value, path, placeholder, typographyStyle =
       placeholder={placeholder}
       style={{
         width: multiline ? undefined : `${Math.max(placeholder?.length || 0, val.length) + 10}ch`,
-        ...textFieldStyle
+        ...textFieldStyle,
       }}
       onSelect={(event) => event.stopPropagation()}
     />
   ) : (
-    <TypographyW variant={typographyVariant} style={{ whiteSpace: 'pre-line', ...typographyStyle}} color={color}>{val}</TypographyW>
-  )
+    <TypographyW
+      variant={typographyVariant}
+      style={{ whiteSpace: "pre-line", ...typographyStyle }}
+      color={color}
+    >
+      {val}
+    </TypographyW>
+  );
 }
