@@ -9,8 +9,10 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Fab,
   TextField,
 } from "@mui/material";
+import { Add } from "@mui/icons-material";
 
 export function SkillKeywords({ keywords, path }) {
   const [kwds, setKeywords] = useState(keywords);
@@ -29,7 +31,8 @@ export function SkillKeywords({ keywords, path }) {
     setMenuVisible(false);
   }
   function addKeyword() {
-    add("new keyword", path);
+    add("NEW KEYWORD", path);
+    setKeywords([...kwds, "NEW KEYWORD"]);
   }
 
   function handleClose(event) {
@@ -49,7 +52,9 @@ export function SkillKeywords({ keywords, path }) {
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
+    <div
+      style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}
+    >
       {kwds.map((keyword, index) => {
         const keywordColor = isDark
           ? lighten(colorByPercentage(index / (kwds.length - 1)))
@@ -70,6 +75,11 @@ export function SkillKeywords({ keywords, path }) {
           />
         );
       })}
+      {authToken && (
+        <Fab size="small" onClick={addKeyword}>
+          <Add />
+        </Fab>
+      )}
       {authToken && (
         <Dialog open={menuVisible} onClose={handleClose}>
           <DialogTitle>Edit Skill Keyword</DialogTitle>

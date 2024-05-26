@@ -23,10 +23,10 @@ export function EditableSkillLevel({ level, path }) {
   const { authToken, replace } = useResumeContext();
   const theme = useTheme();
   const isDark = theme.palette.mode == "dark";
-  const levelColor = Object.keys(levelsDark).includes(level.toLowerCase())
+  const levelColor = Object.keys(levelsDark).includes(lvl.toLowerCase())
     ? isDark
-      ? levelsDark[level.toLowerCase()]
-      : levelsLight[level.toLowerCase()]
+      ? levelsDark[lvl.toLowerCase()]
+      : levelsLight[lvl.toLowerCase()]
     : undefined;
 
   function handleToggleMenu(event) {

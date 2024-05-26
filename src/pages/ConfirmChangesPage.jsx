@@ -31,7 +31,10 @@ export function ConfirmChangesPage() {
       <Button variant="outlined" onClick={clearChanges}>
         Clear Changes
       </Button>
-      <ReactDiffViewer oldValue={oldString} newValue={newString} splitView={true} />
+      <div style={{ overflow: "auto", width: "100%", maxHeight: "80vh" }}>
+        <ReactDiffViewer oldValue={oldString} newValue={newString} splitView={false} />
+      </div>
+      <Button variant="outlined">Save Changes</Button>
     </Page>
   );
 }

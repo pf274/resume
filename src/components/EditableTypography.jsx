@@ -26,7 +26,7 @@ export function EditableTypography({
       onChange={(event) => updateValue(event.target.value)}
       placeholder={placeholder}
       style={{
-        width: multiline ? undefined : `${Math.max(placeholder?.length || 0, val.length) + 10}ch`,
+        // width: multiline ? undefined : `${Math.max(placeholder?.length || 0, val.length) + 1}ch`,
         ...textFieldStyle,
       }}
       onClick={(event) => event.stopPropagation()}

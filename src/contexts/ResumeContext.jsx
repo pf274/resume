@@ -28,7 +28,7 @@ export function ResumeContextProvider({ children }) {
 
   function replace(newData, path) {
     const pathParts = path.split(".");
-    const resumeCopy = JSON.parse(JSON.stringify(resume));
+    const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -46,7 +46,7 @@ export function ResumeContextProvider({ children }) {
 
   function moveUp(path) {
     const pathParts = path.split(".");
-    const resumeCopy = JSON.parse(JSON.stringify(resume));
+    const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -78,7 +78,7 @@ export function ResumeContextProvider({ children }) {
    */
   function moveDown(path) {
     const pathParts = path.split(".");
-    const resumeCopy = JSON.parse(JSON.stringify(resume));
+    const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -110,7 +110,7 @@ export function ResumeContextProvider({ children }) {
    */
   function remove(path) {
     const pathParts = path.split(".");
-    const resumeCopy = JSON.parse(JSON.stringify(resume));
+    const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length - 1; i++) {
       let part = pathParts[i];
@@ -137,7 +137,7 @@ export function ResumeContextProvider({ children }) {
    */
   function add(newData, path) {
     const pathParts = path.split(".");
-    const resumeCopy = JSON.parse(JSON.stringify(resume));
+    const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
     for (let i = 0; i < pathParts.length; i++) {
       let part = pathParts[i];

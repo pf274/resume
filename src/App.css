@@ -68,10 +68,10 @@
   top: 0;
 }
 
-.showOnHover:hover {
-  /* border-color: red; */
-  cursor: pointer;
-}
+/* .showOnHover:hover {
+  border-color: red;
+  cursor: pointer; 
+} */
 
 @media (max-width: 600px) {
   .MuiTabs-indicator {
@@ -81,7 +81,6 @@
     margin-top: 2em;
     margin-bottom: 2em;
   }
-
 }
 
 @media (max-width: 1000px) {
