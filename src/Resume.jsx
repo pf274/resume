@@ -78,11 +78,11 @@ export function Resume() {
         <Tab value="projects" label="Projects" />
         <Tab value="references" label="References" />
       </Tabs>
-      {page == "info" && <InfoPage resume={resume} />}
-      {page == "education" && <EducationPage resume={resume} />}
-      {page == "experience" && <ExperiencePage resume={resume} />}
-      {page == "projects" && <ProjectsPage resume={resume} />}
-      {page == "references" && <ReferencesPage resume={resume} />}
+      {page == "info" && <InfoPage />}
+      {page == "education" && <EducationPage />}
+      {page == "experience" && <ExperiencePage />}
+      {page == "projects" && <ProjectsPage />}
+      {page == "references" && <ReferencesPage />}
       {page == "login" && <LoginPage />}
       {page == "confirmChanges" && <ConfirmChangesPage />}
     </div>
