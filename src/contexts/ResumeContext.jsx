@@ -5,7 +5,7 @@ const ResumeContext = createContext();
 
 export function ResumeContextProvider({ children }) {
   const [resume, setResume] = useState({});
-  const editedResume = useRef({});
+  const editedResume = useRef();
   const [authToken, setAuthToken] = useState(false);
 
   async function finishEditing() {
@@ -165,6 +165,12 @@ export function ResumeContextProvider({ children }) {
     console.log("Resume updated:", resume);
     editedResume.current = resume;
   }, [resume]);
+
+  function getResume() {
+    return authToken && editedResume.current && Object.keys(editedResume.current).length > 0
+      ? editedResume.current
+      : resume;
+  }
   const [page, setPage] = useState("info");
   return (
     <ResumeContext.Provider
@@ -184,6 +190,7 @@ export function ResumeContextProvider({ children }) {
         editedResume,
         clearChanges,
         cancelEdit,
+        getResume,
       }}
     >
       {children}
@@ -204,7 +211,11 @@ export function ResumeContextProvider({ children }) {
  * remove: (path: string) => void,
  * moveUp: (path: string) => void,
  * moveDown: (path: string) => void,
- * replace: (newData: object, path: string) => void
+ * replace: (newData: object, path: string) => void,
+ * editedResume: object,
+ * clearChanges: () => void,
+ * cancelEdit: () => void,
+ * getResume: () => object
  * }}
  */
 export function useResumeContext() {
