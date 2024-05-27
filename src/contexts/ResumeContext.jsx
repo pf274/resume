@@ -104,6 +104,34 @@ export function ResumeContextProvider({ children }) {
     editedResume.current = resumeCopy;
   }
 
+  function move(path, newIndex) {
+    const pathParts = path.split(".");
+    const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
+    let target = resumeCopy;
+    for (let i = 0; i < pathParts.length - 1; i++) {
+      let part = pathParts[i];
+      if (!isNaN(part)) {
+        part = Number(part);
+      }
+      target = target[part];
+    }
+    const lastPart = Number.isNaN(Number(pathParts[pathParts.length - 1]))
+      ? pathParts[pathParts.length - 1]
+      : Number(pathParts[pathParts.length - 1]);
+    if (Array.isArray(target) == false) {
+      console.log("Path is not an item in an array", path, target);
+      return;
+    }
+    if (newIndex < 0 || newIndex >= target.length) {
+      console.log("New index is out of bounds", path, target, newIndex);
+      return;
+    }
+    const temp = target[lastPart];
+    target.splice(lastPart, 1);
+    target.splice(newIndex, 0, temp);
+    editedResume.current = resumeCopy;
+  }
+
   /**
    * Removes an item from an array
    * @param {string} path - the path of the item in an array
@@ -185,6 +213,7 @@ export function ResumeContextProvider({ children }) {
         add,
         remove,
         moveUp,
+        move,
         moveDown,
         replace,
         editedResume,
@@ -210,6 +239,7 @@ export function ResumeContextProvider({ children }) {
  * add: (newData: object, path: string) => void,
  * remove: (path: string) => void,
  * moveUp: (path: string) => void,
+ * move: (path: string, newIndex: number) => void,
  * moveDown: (path: string) => void,
  * replace: (newData: object, path: string) => void,
  * editedResume: object,

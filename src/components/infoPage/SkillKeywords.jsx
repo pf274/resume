@@ -19,7 +19,7 @@ export function SkillKeywords({ keywords, path }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [newKeyword, setNewKeyword] = useState("");
   const [menuVisible, setMenuVisible] = useState(false);
-  const { authToken, remove, add, replace } = useResumeContext();
+  const { authToken, remove, add, replace, moveDown, moveUp } = useResumeContext();
   const theme = useTheme();
   const isDark = theme.palette.mode == "dark";
 
@@ -47,13 +47,50 @@ export function SkillKeywords({ keywords, path }) {
   }
 
   function handleEditKeyword(event) {
+    debugger;
     setNewKeyword(event.target.value);
     replace(event.target.value, `${path}.${selectedIndex}`);
+    const newKeywords = kwds.map((keyword, index) =>
+      index === selectedIndex ? event.target.value : keyword
+    );
+    setKeywords(newKeywords);
+  }
+
+  function handleMoveLeft() {
+    if (selectedIndex === 0) {
+      return;
+    }
+    const newKeywords = [...kwds];
+    const temp = newKeywords[selectedIndex];
+    newKeywords[selectedIndex] = newKeywords[selectedIndex - 1];
+    newKeywords[selectedIndex - 1] = temp;
+    moveDown(`${path}.${selectedIndex}`);
+    setSelectedIndex(selectedIndex - 1);
+    setKeywords(newKeywords);
+  }
+
+  function handleMoveRight() {
+    if (selectedIndex === kwds.length - 1) {
+      return;
+    }
+    const newKeywords = [...kwds];
+    const temp = newKeywords[selectedIndex];
+    newKeywords[selectedIndex] = newKeywords[selectedIndex + 1];
+    newKeywords[selectedIndex + 1] = temp;
+    moveUp(`${path}.${selectedIndex + 1}`);
+    setSelectedIndex(selectedIndex + 1);
+    setKeywords(newKeywords);
   }
 
   return (
     <div
-      style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", alignItems: "center" }}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        alignItems: "center",
+        gap: "0.25em",
+      }}
     >
       {kwds.map((keyword, index) => {
         const keywordColor = isDark
@@ -65,7 +102,6 @@ export function SkillKeywords({ keywords, path }) {
             keyword={keyword}
             path={`skills.${index}.keywords.${index}`}
             chipStyle={{
-              margin: "0.25em",
               backgroundColor: keywordColor,
               color: isDark ? "black" : "white",
               fontWeight: "bold",
@@ -85,6 +121,23 @@ export function SkillKeywords({ keywords, path }) {
           <DialogTitle>Edit Skill Keyword</DialogTitle>
           <DialogContent>
             <TextField value={newKeyword} onChange={handleEditKeyword} />
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                paddingTop: "1em",
+                gap: "1em",
+              }}
+            >
+              <Button onClick={handleMoveLeft} disabled={selectedIndex == 0}>
+                Move Left
+              </Button>
+              <Button onClick={handleMoveRight} disabled={selectedIndex == kwds.length - 1}>
+                Move Right
+              </Button>
+            </div>
           </DialogContent>
           <DialogActions>
             <Button color="warning" onClick={deleteKeyword}>
