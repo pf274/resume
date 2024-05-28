@@ -27,6 +27,9 @@ export function ResumeContextProvider({ children }) {
   }
 
   function replace(newData, path) {
+    if (!path) {
+      throw new Error(`Path is required to replace data: ${newData}`);
+    }
     const pathParts = path.split(".");
     const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
@@ -45,6 +48,9 @@ export function ResumeContextProvider({ children }) {
   }
 
   function moveUp(path) {
+    if (!path) {
+      throw new Error(`Path is required to move up: ${path}`);
+    }
     const pathParts = path.split(".");
     const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
@@ -77,6 +83,9 @@ export function ResumeContextProvider({ children }) {
    * @param {string} path - the path of the item in an array
    */
   function moveDown(path) {
+    if (!path) {
+      throw new Error(`Path is required to move down: ${path}`);
+    }
     const pathParts = path.split(".");
     const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
@@ -105,6 +114,9 @@ export function ResumeContextProvider({ children }) {
   }
 
   function move(path, newIndex) {
+    if (!path) {
+      throw new Error(`Path is required to move: ${path}`);
+    }
     const pathParts = path.split(".");
     const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
@@ -137,6 +149,9 @@ export function ResumeContextProvider({ children }) {
    * @param {string} path - the path of the item in an array
    */
   function remove(path) {
+    if (!path) {
+      throw new Error(`Path is required to remove: ${path}`);
+    }
     const pathParts = path.split(".");
     const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;
@@ -164,6 +179,9 @@ export function ResumeContextProvider({ children }) {
    * @param {string} path - the path of the array
    */
   function add(newData, path) {
+    if (!path) {
+      throw new Error(`Path is required to add: ${newData}`);
+    }
     const pathParts = path.split(".");
     const resumeCopy = JSON.parse(JSON.stringify(editedResume.current));
     let target = resumeCopy;

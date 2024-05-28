@@ -18,7 +18,7 @@ export function ProjectsPage() {
   return (
     <Page>
       {resume.projects.map((info, index) => (
-        <Project info={info} key={index} />
+        <Project info={info} key={index} path={`projects.${index}`} />
       ))}
     </Page>
   );

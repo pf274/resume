@@ -11,7 +11,7 @@ export function ExperiencePage() {
   return (
     <Page>
       {resume.work.map((job, index) => (
-        <Job key={index} job={job} />
+        <Job key={index} job={job} path={`work.${index}`} />
       ))}
     </Page>
   );

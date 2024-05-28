@@ -1,13 +1,17 @@
 import { Typography } from "@mui/material";
-import { ResumeAccordion } from "../ResumeAccordion";
+import { EditableResumeAccordion } from "../EditableResumeAccordion";
 
-export function Project({ info }) {
+export function Project({ info, path }) {
   return (
-    <ResumeAccordion
+    <EditableResumeAccordion
       title={info.name}
       subtitle={info.description}
       startDateString={info.startDate}
       endDateString={info.endDate}
+      titlePath={`${path}.name`}
+      subtitlePath={`${path}.description`}
+      startDatePath={`${path}.startDate`}
+      endDatePath={`${path}.endDate`}
     >
       <div>
         {info.highlights && info.highlights.length > 0 && (
@@ -45,6 +49,6 @@ export function Project({ info }) {
           </Typography>
         )}
       </div>
-    </ResumeAccordion>
+    </EditableResumeAccordion>
   );
 }

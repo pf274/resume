@@ -11,7 +11,7 @@ export function EducationPage() {
   return (
     <Page>
       {resume.education.map((education, index) => (
-        <Institution key={index} details={education} />
+        <Institution key={index} details={education} path={`education.${index}`} />
       ))}
     </Page>
   );

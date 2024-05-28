@@ -1,10 +1,19 @@
 import { Typography } from "@mui/material";
-import { ResumeAccordion } from "../ResumeAccordion";
+import { EditableResumeAccordion } from "../EditableResumeAccordion";
 import { TypographyW } from "../TypographyW";
 
-export function Job({ job }) {
+export function Job({ job, path }) {
   return (
-    <ResumeAccordion title={job.name} title2={job.position} startDateString={job.startDate} endDateString={job.endDate}>
+    <EditableResumeAccordion
+      title={job.name}
+      title2={job.position}
+      startDateString={job.startDate}
+      endDateString={job.endDate}
+      titlePath={`${path}.name`}
+      title2Path={`${path}.position`}
+      startDatePath={`${path}.startDate`}
+      endDatePath={`${path}.endDate`}
+    >
       <div>
         <TypographyW>{job.summary}</TypographyW>
         {job.highlights && job.highlights.length > 0 && (
@@ -20,6 +29,6 @@ export function Job({ job }) {
           </Typography>
         )}
       </div>
-    </ResumeAccordion>
+    </EditableResumeAccordion>
   );
 }

@@ -28,7 +28,7 @@ export function Resume() {
   }
   return (
     <div style={{ flex: 1, padding: "2em", display: "flex", flexDirection: "column" }}>
-      <Typography style={{ textAlign: "center" }} variant="h2">
+      <Typography style={{ textAlign: "center", marginTop: authToken ? "1em" : 0 }} variant="h2">
         Peter Fullmer
       </Typography>
       {resume?.basics?.label && (

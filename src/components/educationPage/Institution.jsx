@@ -1,15 +1,31 @@
-import { Accordion, AccordionDetails, AccordionSummary, Divider, Table, TableBody, TableHead, Typography } from "@mui/material";
-import { ResumeAccordion } from "../ResumeAccordion";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Divider,
+  Table,
+  TableBody,
+  TableHead,
+  Typography,
+} from "@mui/material";
+import { EditableResumeAccordion } from "../EditableResumeAccordion";
 import { ArrowDropDown } from "@mui/icons-material";
 import { Course } from "./Course";
 
-export function Institution({ details }) {
+export function Institution({ details, path }) {
   return (
-    <ResumeAccordion title={details.institution} title2={details.area} startDateString={details.startDate} endDateString={details.endDate}>
+    <EditableResumeAccordion
+      title={details.institution}
+      title2={details.area}
+      startDateString={details.startDate}
+      endDateString={details.endDate}
+      titlePath={`${path}.institution`}
+      title2Path={`${path}.area`}
+      startDatePath={`${path}.startDate`}
+      endDatePath={`${path}.endDate`}
+    >
       <div style={{ display: "flex", flexDirection: "column", gap: "1em" }}>
-        <Typography variant="subtitle1">
-          {`${details.studyType} - ${details.score} GPA`}
-        </Typography>
+        <Typography variant="subtitle1">{`${details.studyType} - ${details.score} GPA`}</Typography>
         {details.courses && details.courses.length > 0 && (
           <Accordion variant="outlined">
             <AccordionSummary expandIcon={<ArrowDropDown />}>
@@ -43,6 +59,6 @@ export function Institution({ details }) {
           </Typography>
         )}
       </div>
-    </ResumeAccordion>
+    </EditableResumeAccordion>
   );
 }
