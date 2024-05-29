@@ -31,13 +31,14 @@ export function colorByPercentage(percentage) {
     .shift();
   const lowerColor = checkpoints[lowerBound];
   const upperColor = checkpoints[upperBound];
+  if (!lowerColor || !upperColor) {
+    throw new Error("Invalid color bounds");
+  }
 
   const ratio = (percentageInt - lowerBound) / (upperBound - lowerBound);
   const mixedColor = lowerColor.map((lowerColorPart, index) => {
     const upperColorPart = upperColor[index];
-    return Math.round(
-      lowerColorPart + ratio * (upperColorPart - lowerColorPart)
-    );
+    return Math.round(lowerColorPart + ratio * (upperColorPart - lowerColorPart));
   });
 
   return `rgb(${mixedColor.join(", ")})`;
@@ -49,9 +50,7 @@ export function lighten(rgbColorString) {
     .split(", ")
     .map((color) => parseInt(color));
   const ratio = 0.5;
-  const lightenedColor = rgb.map((color) =>
-    Math.round(color + (255 - color) * ratio)
-  );
+  const lightenedColor = rgb.map((color) => Math.round(color + (255 - color) * ratio));
   return `rgb(${lightenedColor.join(", ")})`;
 }
 

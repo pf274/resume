@@ -83,6 +83,7 @@ export function EditableResumeAccordion({
                 value={title}
                 path={titlePath}
                 placeholder="title"
+                multiline
               />
               {title2 && <Break />}
               {title2 && (
@@ -92,6 +93,7 @@ export function EditableResumeAccordion({
                   value={title2}
                   path={title2Path}
                   placeholder="title 2"
+                  multiline
                 />
               )}
             </div>
@@ -124,6 +126,12 @@ export function EditableResumeAccordion({
                 type="date"
                 value={startDate.toISOString().split("T")[0]}
                 onChange={handleChangeStartDate}
+                onBlur={() => {
+                  if (endDate < startDate) {
+                    setEndDate(startDate);
+                    replace(startDate.toISOString().split("T")[0], endDatePath);
+                  }
+                }}
                 style={{
                   backgroundColor: isDark ? "black" : "white",
                   color: isDark ? "white" : "black",
@@ -140,6 +148,12 @@ export function EditableResumeAccordion({
                 type="date"
                 value={endDate.toISOString().split("T")[0]}
                 onChange={handleChangeEndDate}
+                onBlur={() => {
+                  if (startDate > endDate) {
+                    setStartDate(endDate);
+                    replace(endDate.toISOString().split("T")[0], startDatePath);
+                  }
+                }}
                 style={{
                   backgroundColor: isDark ? "black" : "white",
                   color: isDark ? "white" : "black",

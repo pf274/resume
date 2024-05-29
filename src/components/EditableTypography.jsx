@@ -12,12 +12,14 @@ export function EditableTypography({
   typographyVariant,
   color,
   multiline = false,
+  onUpdated = () => {},
 }) {
   const [val, setValue] = useState(value);
   const { authToken, replace } = useResumeContext();
   function updateValue(newValue) {
     replace(newValue, path);
     setValue(newValue);
+    onUpdated(newValue);
   }
   return authToken ? (
     <TextField

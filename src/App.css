@@ -68,6 +68,16 @@
   top: 0;
 }
 
+.name {
+  font-size: 4em;
+  text-align: center;
+}
+
+.label {
+  font-size: 1.5em;
+  text-align: center;
+}
+
 /* .showOnHover:hover {
   border-color: red;
   cursor: pointer; 
@@ -80,6 +90,12 @@
   .MuiTabs-flexContainer {
     margin-top: 2em;
     margin-bottom: 2em;
+  }
+  .name {
+    font-size: 2em;
+  }
+  .label {
+    font-size: 1em;
   }
 }
 

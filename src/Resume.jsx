@@ -8,7 +8,6 @@ import { useThemeContext } from "./contexts/ThemeContext";
 import { LoginPage } from "./pages/LoginPage";
 import { useResumeContext } from "./contexts/ResumeContext";
 import { ConfirmChangesPage } from "./pages/ConfirmChangesPage";
-import { stringifyResume } from "./gistHelper";
 
 export function Resume() {
   const { resume, page, setPage, authToken, clearChanges, setAuth, cancelEdit } =
@@ -28,13 +27,13 @@ export function Resume() {
   }
   return (
     <div style={{ flex: 1, padding: "2em", display: "flex", flexDirection: "column" }}>
-      <Typography style={{ textAlign: "center", marginTop: authToken ? "1em" : 0 }} variant="h2">
+      <div style={{ marginTop: authToken ? "0.66em" : 0 }} className="name">
         Peter Fullmer
-      </Typography>
+      </div>
       {resume?.basics?.label && (
-        <Typography style={{ textAlign: "center", margin: "0.5em" }} variant="h4">
+        <div style={{ margin: "0.5em" }} className="label">
           {resume.basics.label}
-        </Typography>
+        </div>
       )}
       <div style={{ alignSelf: "center" }}>
         <Button value={isLight} onClick={handleToggleTheme} color="inherit">

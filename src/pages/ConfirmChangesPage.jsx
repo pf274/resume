@@ -22,17 +22,15 @@ export function ConfirmChangesPage() {
       </Page>
     );
   }
-  // const diff = useMemo(() => {
-  //   const dmp = new diff_match_patch();
-  //   return dmp.diff_main(oldString, newString);
-  // }, [oldString, newString]);
   return (
     <Page>
       <Button variant="outlined" onClick={clearChanges}>
         Clear Changes
       </Button>
       <div style={{ overflow: "auto", width: "100%", maxHeight: "80vh" }}>
-        <ReactDiffViewer oldValue={oldString} newValue={newString} splitView={false} />
+        <div style={{ minWidth: "34em" }}>
+          <ReactDiffViewer oldValue={oldString} newValue={newString} splitView={false} />
+        </div>
       </div>
       <Button variant="outlined">Save Changes</Button>
     </Page>

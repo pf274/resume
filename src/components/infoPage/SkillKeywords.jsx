@@ -31,6 +31,7 @@ export function SkillKeywords({ keywords, path }) {
     setMenuVisible(false);
   }
   function addKeyword() {
+    debugger;
     add("NEW KEYWORD", path);
     setKeywords([...kwds, "NEW KEYWORD"]);
   }
@@ -41,7 +42,7 @@ export function SkillKeywords({ keywords, path }) {
   }
 
   function showMenu(event, i) {
-    setNewKeyword(event.target.innerHTML);
+    setNewKeyword(event.currentTarget.textContent);
     setSelectedIndex(i);
     setMenuVisible(true);
   }
@@ -93,12 +94,13 @@ export function SkillKeywords({ keywords, path }) {
       }}
     >
       {kwds.map((keyword, index) => {
+        const percentage = kwds.length <= 1 ? 0 : index / (kwds.length - 1);
         const keywordColor = isDark
-          ? lighten(colorByPercentage(index / (kwds.length - 1)))
-          : darken(colorByPercentage(index / (kwds.length - 1)));
+          ? lighten(colorByPercentage(percentage))
+          : darken(colorByPercentage(percentage));
         return (
           <EditableSkillKeyword
-            key={index}
+            key={`${keyword}${index}`}
             keyword={keyword}
             path={`skills.${index}.keywords.${index}`}
             chipStyle={{
