@@ -23,7 +23,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { colorByPercentage, darken, lighten, randomColor } from "../../colorGen";
+import { colorByPercentage, darken, lighten } from "../../colorGen";
 import { ResumeCard } from "../ResumeCard";
 import { EditableTypography } from "../EditableTypography";
 import { useResumeContext } from "../../contexts/ResumeContext";
