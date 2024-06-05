@@ -1,12 +1,11 @@
-import { Button, Fab, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { EditableResumeAccordion } from "../EditableResumeAccordion";
-import { TypographyW } from "../TypographyW";
 import { EditableTypography } from "../EditableTypography";
 import { useState } from "react";
 import { useResumeContext } from "../../contexts/ResumeContext";
-import { Add, Delete } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 
-export function Job({ job, path }) {
+export function Job({ job, path, handleDelete, index, handleMoveUp, handleMoveDown, numJobs }) {
   const [highlights, setHighlights] = useState(job.highlights || []);
   const { authToken, add, remove } = useResumeContext();
   function handleAddHighlight() {
@@ -36,7 +35,20 @@ export function Job({ job, path }) {
       startDatePath={`${path}.startDate`}
       endDatePath={`${path}.endDate`}
     >
-      <div>
+      <div style={{display: 'flex', flexDirection: 'column', gap: '1em'}}>
+        {authToken && (
+          <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '1em'}}>
+            <Button onClick={() => handleDelete(index)} variant="outlined" color="error">
+              Delete Job
+            </Button>
+            <Button onClick={() => handleMoveUp(index)} variant="outlined" disabled={index == 0}>
+              Move Up
+            </Button>
+            <Button onClick={() => handleMoveDown(index)} variant="outlined" disabled={index == numJobs - 1}>
+              Move Down
+            </Button>
+          </div>
+        )}
         <EditableTypography
           value={job.summary}
           placeholder="Summary"
@@ -44,8 +56,7 @@ export function Job({ job, path }) {
           textFieldStyle={{ width: "100%" }}
           multiline
         />
-
-        <ul>
+        <ul style={{display: 'flex', flexDirection: 'column', gap: '1em'}}>
           {highlights.map((highlight, index) => (
             <li key={`${index}/${highlights.length}`}>
               <div
@@ -53,7 +64,6 @@ export function Job({ job, path }) {
                   display: "flex",
                   flexDirection: "row",
                   gap: "1em",
-                  marginTop: "1em",
                   width: "100%",
                   alignItems: "center",
                 }}
@@ -74,14 +84,19 @@ export function Job({ job, path }) {
           ))}
         </ul>
         {authToken && (
-          <Button onClick={handleAddHighlight} variant="outlined">
-            Add Highlight
-          </Button>
+          <div>
+            <Button onClick={handleAddHighlight} variant="outlined">
+              Add Highlight
+            </Button>
+          </div>
         )}
-        {job.url && (
+        {job.url && !authToken && (
           <Typography>
             <a href={job.url}>See Related Website</a>
           </Typography>
+        )}
+        {authToken && (
+          <EditableTypography value={job.url} placeholder="Related Website" path={`${path}.url`} />
         )}
       </div>
     </EditableResumeAccordion>

@@ -31,7 +31,6 @@ export function SkillKeywords({ keywords, path }) {
     setMenuVisible(false);
   }
   function addKeyword() {
-    debugger;
     add("NEW KEYWORD", path);
     setKeywords([...kwds, "NEW KEYWORD"]);
   }
@@ -48,7 +47,6 @@ export function SkillKeywords({ keywords, path }) {
   }
 
   function handleEditKeyword(event) {
-    debugger;
     setNewKeyword(event.target.value);
     replace(event.target.value, `${path}.${selectedIndex}`);
     const newKeywords = kwds.map((keyword, index) =>
