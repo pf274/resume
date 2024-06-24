@@ -6,11 +6,19 @@ import { Fab } from "@mui/material";
 import { useState } from "react";
 
 export function ExperiencePage() {
-  const { getResume, add, remove, moveUp, moveDown } = useResumeContext();
+  const { getResume, add, remove, moveUp, moveDown, authToken } = useResumeContext();
   const resume = getResume();
   const [work, setWork] = useState(resume.work || []);
   function handleAddWork() {
-    const newJob = { name: "New Job", position: "New Position", startDate: "2022-01-01", endDate: "2022-12-31", summary: "New Summary", url: "", highlights: [] };
+    const newJob = {
+      name: "New Job",
+      position: "New Position",
+      startDate: "2022-01-01",
+      endDate: "2022-12-31",
+      summary: "New Summary",
+      url: "",
+      highlights: [],
+    };
     setWork([...work, newJob]);
     add(newJob, "work");
   }
@@ -18,7 +26,7 @@ export function ExperiencePage() {
     return <div>No work experience found</div>;
   }
   function handleDelete(index) {
-    remove(`work.${index}`)
+    remove(`work.${index}`);
     const newWork = work.filter((job, i) => i !== index);
     setWork(newWork);
   }
@@ -46,12 +54,23 @@ export function ExperiencePage() {
   }
   return (
     <Page>
-        {work.map((job, index) => (
-          <Job key={`${index}/${work.length}/${job.name}`} job={job} path={`work.${index}`} handleDelete={handleDelete} index={index} handleMoveUp={handleMoveUp} handleMoveDown={handleMoveDown} numJobs={work.length} />
-          ))}
-        <Fab sx={{alignSelf: 'center'}} onClick={handleAddWork}>
-        <Add />
+      {work.map((job, index) => (
+        <Job
+          key={`${index}/${work.length}/${job.name}`}
+          job={job}
+          path={`work.${index}`}
+          handleDelete={handleDelete}
+          index={index}
+          handleMoveUp={handleMoveUp}
+          handleMoveDown={handleMoveDown}
+          numJobs={work.length}
+        />
+      ))}
+      {authToken && (
+        <Fab sx={{ alignSelf: "center" }} onClick={handleAddWork}>
+          <Add />
         </Fab>
+      )}
     </Page>
   );
 }
