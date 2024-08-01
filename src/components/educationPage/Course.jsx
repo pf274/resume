@@ -5,9 +5,9 @@ import { colorByPercentage } from "../../colorGen";
 const gradeLetters = ["A", "B", "C", "D", "F"];
 const gradeColors = [
   colorByPercentage(0.4),
-  colorByPercentage(0.3),
   colorByPercentage(0.2),
   colorByPercentage(0.1),
+  colorByPercentage(0),
   colorByPercentage(0),
 ];
 
@@ -29,8 +29,7 @@ export function Course({ description }) {
   const isCompleted = columns.status.toLowerCase() === "completed";
   const gradeLetter = columns.grade.replace(/[^A-D,F]/g, "").toUpperCase();
   const gradeIndex = gradeLetters.findIndex((value) => value == gradeLetter);
-  const gradeColor =
-    gradeIndex < 0 ? (isDark ? "white" : "black") : gradeColors[gradeIndex];
+  const gradeColor = gradeIndex < 0 ? (isDark ? "white" : "black") : gradeColors[gradeIndex];
   return (
     <TableRow sx={{ textAlign: "center" }}>
       <td style={{ paddingRight: "1em", paddingBottom: "2em" }}>
@@ -38,13 +37,7 @@ export function Course({ description }) {
           alt={columns.status}
           label={columns.status}
           style={{
-            color: isCompleted
-              ? isDark
-                ? "lightgreen"
-                : "green"
-              : isDark
-              ? "gray"
-              : "darkgray",
+            color: isCompleted ? (isDark ? "lightgreen" : "green") : isDark ? "gray" : "darkgray",
             // color: isDark ? "black" : "white",
             // fontWeight: "bold",
           }}
@@ -52,12 +45,8 @@ export function Course({ description }) {
           {columns.status}
         </Typography>
       </td>
-      <td style={{ paddingRight: "1em", paddingBottom: "2em" }}>
-        {columns.courseId}
-      </td>
-      <td style={{ paddingRight: "1em", paddingBottom: "2em" }}>
-        {columns.courseName}
-      </td>
+      <td style={{ paddingRight: "1em", paddingBottom: "2em" }}>{columns.courseId}</td>
+      <td style={{ paddingRight: "1em", paddingBottom: "2em" }}>{columns.courseName}</td>
       <td style={{ color: gradeColor }}>{columns.grade}</td>
     </TableRow>
   );
