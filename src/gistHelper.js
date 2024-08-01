@@ -25,22 +25,27 @@ export function stringifyResume(resume) {
 }
 
 export async function saveData(newData, authToken) {
-  const saveData = typeof newData === "string" ? newData : JSON.stringify(newData);
+  const dataToSave = typeof newData === "string" ? newData : JSON.stringify(newData, null, 2);
   const octokit = new Octokit({
     auth: authToken,
   });
 
-  await octokit.request("PATCH /gists/{gist_id}", {
+  const response = await octokit.request("PATCH /gists/{gist_id}", {
     gist_id: gistId,
     files: {
       "resume.json": {
-        content: saveData,
+        content: dataToSave,
       },
     },
     headers: {
       "X-GitHub-Api-Version": "2022-11-28",
     },
   });
+  if (response.status === 200) {
+    console.log("Data saved successfully");
+  } else {
+    console.log("Data save failed");
+  }
 }
 
 export function authenticate(field1, field2) {
