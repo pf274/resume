@@ -9,9 +9,11 @@ export function ConfirmChangesPage() {
   const { resume, editedResume, setPage, clearChanges, authToken } = useResumeContext();
   const oldString = stringifyResume(resume);
   const newString = stringifyResume(editedResume.current);
+  const [loading, setLoading] = useState(false);
   const [splitView, setSplitView] = useState(false);
 
   async function handleSaveChanges() {
+    setLoading(true);
     await saveData(newString, authToken);
     localStorage.removeItem("authToken");
     window.location.reload();
@@ -44,7 +46,7 @@ export function ConfirmChangesPage() {
           <ReactDiffViewer oldValue={oldString} newValue={newString} splitView={splitView} />
         </div>
       </div>
-      <Button variant="outlined" onClick={handleSaveChanges}>
+      <Button variant="outlined" onClick={handleSaveChanges} disabled={loading}>
         Save Changes
       </Button>
     </Page>
