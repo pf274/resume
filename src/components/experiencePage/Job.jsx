@@ -37,10 +37,10 @@ export function Job({ job, path, handleDelete, index, handleMoveUp, handleMoveDo
               Delete Job
             </Button>
             <Button onClick={() => handleMoveUp(index)} variant="outlined" disabled={index == 0}>
-              Move Up
+              Move Job Up
             </Button>
             <Button onClick={() => handleMoveDown(index)} variant="outlined" disabled={index == numJobs - 1}>
-              Move Down
+              Move Job Down
             </Button>
           </div>
         )}

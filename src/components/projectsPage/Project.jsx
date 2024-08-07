@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useResumeContext } from "../../contexts/ResumeContext";
 import { getNewHighlight } from "../../helperFuncs";
 
-export function Project({ info, path }) {
+export function Project({ info, path, moveProjectDown, moveProjectUp, deleteProject, projectIndex, numProjects }) {
   const [highlights, setHighlights] = useState(info.highlights || []);
   const [otherLinks, setOtherLinks] = useState(info.showcase || []);
   const [mainUrl, setMainUrl] = useState(info.url || '');
@@ -104,7 +104,13 @@ export function Project({ info, path }) {
       startDatePath={`${path}.startDate`}
       endDatePath={`${path}.endDate`}
     >
+      {authToken && <div style={{display: 'flex', gap: '1em'}}>
+        <Button variant="outlined" color="error" onClick={() => deleteProject(projectIndex)}>Delete Project</Button>
+        <Button variant="outlined" color="info" disabled={projectIndex == 0} onClick={() => moveProjectUp(projectIndex)}>Move Project Up</Button>
+        <Button variant="outlined" color="info" disabled={projectIndex == numProjects - 1} onClick={() => moveProjectDown(projectIndex)}>Move Project Down</Button>
+      </div>}
       <div>
+        {highlights.length == 0 && authToken && <Typography>There are no highlights.</Typography>}
         {highlights.length > 0 && (
           <ul>
             {highlights.map((highlight, index) => (
@@ -157,6 +163,7 @@ export function Project({ info, path }) {
         )}
         {authToken && <Button onClick={addHighlight}>Add Highlight</Button>}
         {((otherLinks.length > 0) || authToken) && <Typography variant="h6">Other Links</Typography>}
+        {otherLinks.length == 0 && authToken && <Typography>There are no other links.</Typography>}
         <ul>
           {otherLinks.map((details, index) => {
             // const isYoutubeLink = url.includes("youtube.com");
