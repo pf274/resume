@@ -15,7 +15,8 @@ export function Job({ job, path, handleDelete, index, handleMoveUp, handleMoveDo
       `Benched ${randomNumber} pounds`,
       `Saved the company $${randomNumber} in costs`,
       `Consumed ${randomNumber} enchiladas in one sitting`,
-    ][Math.floor(Math.random() * 4)];
+      `Built an army of ${randomNumber} roombas`
+    ][Math.floor(Math.random() * 5)];
     setHighlights([...highlights, newHighlight]);
     add(newHighlight, `${path}.highlights`);
   }
