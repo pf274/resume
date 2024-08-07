@@ -116,7 +116,7 @@ export function Project({ info, path }) {
                     placeholder="highlight"
                     multiline
                   />
-                  <Fab
+                  {authToken && <Fab
                     size="small"
                     onClick={(event) => {
                       deleteHighlight(index);
@@ -125,8 +125,8 @@ export function Project({ info, path }) {
                     color="error"
                   >
                     <Delete />
-                  </Fab>
-                  <Fab
+                  </Fab>}
+                  {authToken && <Fab
                     size="small"
                     onClick={(event) => {
                       event.stopPropagation();
@@ -137,8 +137,8 @@ export function Project({ info, path }) {
                     disabled={index == 0}
                   >
                     <ArrowDropUp />
-                  </Fab>
-                  <Fab
+                  </Fab>}
+                  {authToken && <Fab
                     size="small"
                     onClick={(event) => {
                       event.stopPropagation();
@@ -149,7 +149,7 @@ export function Project({ info, path }) {
                     disabled={index == highlights.length - 1}
                   >
                     <ArrowDropDown />
-                  </Fab>
+                  </Fab>}
                 </div>
               </li>
             ))}
@@ -253,8 +253,9 @@ export function Project({ info, path }) {
               replace(undefined, `${path}.url`);
               setMainUrlVisible(false);
             } else {
-              setMainUrl('https://www.yourwebsite.com');
-              replace('https://www.yourwebsite.com', `${path}.url`);
+              const newUrl = info.url || 'https://www.yourwebsite.com';
+              setMainUrl(newUrl);
+              replace(newUrl, `${path}.url`);
               setMainUrlVisible(true);
             }
           }}>{mainUrlVisible ? 'Visible' : 'Invisible'}</Button>

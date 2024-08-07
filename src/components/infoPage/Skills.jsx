@@ -44,6 +44,7 @@ function SkillSection({ skill, index, totalSkills, deleteSkill, moveSkillUp, mov
                   deleteSkill(index);
                   event.stopPropagation();
                 }}
+                color="error"
               >
                 <Delete />
               </Fab>
