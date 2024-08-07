@@ -4,19 +4,13 @@ import { EditableTypography } from "../EditableTypography";
 import { useState } from "react";
 import { useResumeContext } from "../../contexts/ResumeContext";
 import { Delete } from "@mui/icons-material";
+import { getNewHighlight } from "../../helperFuncs";
 
 export function Job({ job, path, handleDelete, index, handleMoveUp, handleMoveDown, numJobs }) {
   const [highlights, setHighlights] = useState(job.highlights || []);
   const { authToken, add, remove } = useResumeContext();
   function handleAddHighlight() {
-    const randomNumber = Math.floor(Math.random() * 999_999_999).toLocaleString();
-    const newHighlight = [
-      `Saved the world ${randomNumber} times`,
-      `Benched ${randomNumber} pounds`,
-      `Saved the company $${randomNumber} in costs`,
-      `Consumed ${randomNumber} enchiladas in one sitting`,
-      `Built an army of ${randomNumber} roombas`
-    ][Math.floor(Math.random() * 5)];
+    const newHighlight = getNewHighlight();
     setHighlights([...highlights, newHighlight]);
     add(newHighlight, `${path}.highlights`);
   }
