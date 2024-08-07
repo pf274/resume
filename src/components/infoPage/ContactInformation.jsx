@@ -178,7 +178,7 @@ export function ContactInformation({ basics }) {
             const percentage = profiles.length <= 1 ? 0 : index / (profiles.length - 1);
             return (
               <IconComponent
-                key={`${profile.network}${index}`}
+                key={`${profile.network}/${index}`}
                 onClick={() => {
                   if (authToken) {
                     setPlatform(profile.network);
@@ -207,6 +207,7 @@ export function ContactInformation({ basics }) {
                 <Select value={platform} sx={{ minWidth: "6em" }}>
                   {Object.keys(icons).map((platformOption) => (
                     <MenuItem
+                      key={platformOption}
                       value={platformOption}
                       onClick={() => handleChangePlatform(platformOption)}
                     >
