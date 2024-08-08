@@ -15,13 +15,13 @@ export function Project({ info, path, moveProjectDown, moveProjectUp, deleteProj
   function deleteHighlight(index) {
     const newHighlights = [...highlights].filter((_, i) => i !== index);
     remove(`${path}.highlights.${index}`);
-    setSkills(newHighlights);
+    setHighlights(newHighlights);
   }
   function addHighlight() {
     const newHighlight = getNewHighlight();
     add(newHighlight, `${path}.highlights`);
-    setHighlights((prevSkills) => [
-      ...prevSkills,
+    setHighlights((prevHighlights) => [
+      ...prevHighlights,
       newHighlight,
     ]);
   }
