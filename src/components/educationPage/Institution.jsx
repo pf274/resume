@@ -1,13 +1,4 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Divider,
-  Table,
-  TableBody,
-  TableHead,
-  Typography,
-} from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Table, TableBody, TableHead, Typography } from "@mui/material";
 import { EditableResumeAccordion } from "../EditableResumeAccordion";
 import { ArrowDropDown } from "@mui/icons-material";
 import { Course } from "./Course";
@@ -52,29 +43,47 @@ export function Institution({ details, path }) {
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "1em" }}>
         <Typography variant="subtitle1">{`${details.studyType} - ${details.score} GPA`}</Typography>
-        {validVisual && <div
-          ref={scrollRef}
-          style={{
-            position: 'relative',
-            overflowX: 'auto',
-            overflowY: 'hidden',
-            maxWidth: '100%',
-            padding: '1em',
-            scrollbarWidth: 'none',
-            msOverflowStyle: 'none',
-            borderWidth: 2,
-            borderRadius: '0.5em',
-            borderColor: isDark ? 'gray' : 'black',
-            borderStyle: 'solid',
-            backgroundColor: 'black'
-          }}
-        >
-          {<img src={details.visual} width={2000} />}
-          {progress < 1 && progress > 0 && <div style={{backgroundColor: 'red', position: 'absolute', left: 2000 * progress + 16, top: 0, bottom: 0, width: 1, height: '100%'}}/>}
-          {progress < 1 && progress > 0 && <div style={{display: 'flex', alignItems: 'flex-end', position: 'absolute', left: 2000 * (progress) + 16, top: 0, bottom: 0, height: '100%'}}>
-            <Typography style={{textAlign: 'right', color: 'red', paddingRight: '0.5em', transform: 'translateX(-100%)', textWrap: 'nowrap'}}>Today</Typography>
-          </div>}
-        </div>}
+        {validVisual && (
+          <div
+            ref={scrollRef}
+            style={{
+              position: "relative",
+              overflowX: "auto",
+              overflowY: "hidden",
+              maxWidth: "100%",
+              padding: "1em",
+              borderWidth: 2,
+              borderRadius: "0.5em",
+              borderColor: isDark ? "gray" : "black",
+              borderStyle: "solid",
+              backgroundColor: "black",
+            }}
+          >
+            {<img src={details.visual} width={2000} />}
+            {progress < 1 && progress > 0 && (
+              <div
+                style={{ backgroundColor: "red", position: "absolute", left: 2000 * progress + 16, top: 0, bottom: 0, width: 1, height: "100%" }}
+              />
+            )}
+            {progress < 1 && progress > 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  position: "absolute",
+                  left: 2000 * progress + 16,
+                  top: 0,
+                  bottom: 0,
+                  height: "100%",
+                }}
+              >
+                <Typography style={{ textAlign: "right", color: "red", paddingRight: "0.5em", transform: "translateX(-100%)", textWrap: "nowrap" }}>
+                  Today
+                </Typography>
+              </div>
+            )}
+          </div>
+        )}
         {details.courses && details.courses.length > 0 && (
           <Accordion variant="outlined">
             <AccordionSummary expandIcon={<ArrowDropDown />}>
