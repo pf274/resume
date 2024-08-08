@@ -1,4 +1,4 @@
-import { Button, Fab, Switch, TextField, Typography } from "@mui/material";
+import { Button, Fab, TextField, Typography } from "@mui/material";
 import { EditableResumeAccordion } from "../EditableResumeAccordion";
 import { EditableTypography } from "../EditableTypography";
 import { ArrowDropDown, ArrowDropUp, Delete } from "@mui/icons-material";

@@ -52,10 +52,7 @@ export function authenticate(field1, field2) {
   try {
     const bytes = CryptoJS.AES.decrypt(field2, field1);
     const decryptedString = bytes.toString(CryptoJS.enc.Utf8);
-    if (
-      decryptedString.charAt(0) != "|" ||
-      decryptedString.charAt(decryptedString.length - 1) != "|"
-    ) {
+    if (decryptedString.charAt(0) != "|" || decryptedString.charAt(decryptedString.length - 1) != "|") {
       return null;
     }
     return decryptedString.slice(1, decryptedString.length - 1);

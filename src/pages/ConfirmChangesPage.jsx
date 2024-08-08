@@ -21,7 +21,13 @@ export function ConfirmChangesPage() {
   if (oldString === newString) {
     return (
       <Page>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <Typography style={{ textAlign: "center", margin: "1em" }} variant="h5">
             No changes have been made
           </Typography>

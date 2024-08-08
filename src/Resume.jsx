@@ -8,10 +8,10 @@ import { useThemeContext } from "./contexts/ThemeContext";
 import { LoginPage } from "./pages/LoginPage";
 import { useResumeContext } from "./contexts/ResumeContext";
 import { ConfirmChangesPage } from "./pages/ConfirmChangesPage";
+import { AdminToolsPage } from "./pages/AdminToolsPage";
 
 export function Resume() {
-  const { resume, page, setPage, authToken, clearChanges, setAuth, cancelEdit } =
-    useResumeContext();
+  const { resume, page, setPage, authToken, clearChanges, setAuth, cancelEdit } = useResumeContext();
   const { currentTheme, setTheme } = useThemeContext();
   const isLight = currentTheme.palette.mode === "light";
 
@@ -27,9 +27,9 @@ export function Resume() {
   }
   return (
     <div style={{ flex: 1, padding: "2em", display: "flex", flexDirection: "column" }}>
-      <div style={{ marginTop: authToken ? "0.66em" : 0 }} className="name">
+      {/* <div style={{ marginTop: authToken ? "0.66em" : 0 }} className="name">
         Peter Fullmer
-      </div>
+      </div> */}
       {resume?.basics?.label && (
         <div style={{ margin: "0.5em" }} className="label">
           {resume.basics.label}
@@ -76,6 +76,7 @@ export function Resume() {
         <Tab value="education" label="Education" />
         <Tab value="projects" label="Projects" />
         <Tab value="references" label="References" />
+        {authToken && <Tab value="tools" label="Admin Tools" />}
       </Tabs>
       {page == "info" && <InfoPage />}
       {page == "education" && <EducationPage />}
@@ -84,6 +85,7 @@ export function Resume() {
       {page == "references" && <ReferencesPage />}
       {page == "login" && <LoginPage />}
       {page == "confirmChanges" && <ConfirmChangesPage />}
+      {page == "tools" && <AdminToolsPage />}
     </div>
   );
 }

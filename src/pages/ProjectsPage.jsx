@@ -45,15 +45,15 @@ export function ProjectsPage() {
     const day = new Date().getDate();
     const newProject = {
       name: `Project ${Math.floor(Math.random() * 10000000).toLocaleString()}`,
-      startDate: `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`,
-      endDate: `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`,
+      startDate: `${year}-${month < 10 ? "0" : ""}${month}-${day < 10 ? "0" : ""}${day}`,
+      endDate: `${year}-${month < 10 ? "0" : ""}${month}-${day < 10 ? "0" : ""}${day}`,
       description: "This is a new project",
       highlights: [],
-      showcase: []
+      showcase: [],
     };
     const newProjects = [...projects, newProject];
     setProjects(newProjects);
-    add(newProject, `projects`)
+    add(newProject, `projects`);
   }
   function deleteProject(index) {
     const newProjects = projects.filter((_, i) => i != index);
@@ -63,7 +63,16 @@ export function ProjectsPage() {
   return (
     <Page>
       {resume.projects.map((info, index) => (
-        <Project info={info} key={`${index}/${projects.length}/${info.name}`} projectIndex={index} numProjects={projects.length} path={`projects.${index}`} moveProjectDown={moveProjectDown} moveProjectUp={moveProjectUp} deleteProject={deleteProject} />
+        <Project
+          info={info}
+          key={`${index}/${projects.length}/${info.name}`}
+          projectIndex={index}
+          numProjects={projects.length}
+          path={`projects.${index}`}
+          moveProjectDown={moveProjectDown}
+          moveProjectUp={moveProjectUp}
+          deleteProject={deleteProject}
+        />
       ))}
       {authToken && <Button onClick={addProject}>Add Project</Button>}
     </Page>

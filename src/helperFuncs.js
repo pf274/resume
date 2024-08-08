@@ -5,6 +5,6 @@ export function getNewHighlight() {
     `Benched ${randomNumber} pounds`,
     `Saved the company $${randomNumber} in costs`,
     `Consumed ${randomNumber} enchiladas in one sitting`,
-    `Built an army of ${randomNumber} roombas`
+    `Built an army of ${randomNumber} roombas`,
   ][Math.floor(Math.random() * 5)];
 }
