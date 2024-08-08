@@ -27,9 +27,9 @@ export function Resume() {
   }
   return (
     <div style={{ flex: 1, padding: "2em", display: "flex", flexDirection: "column" }}>
-      {/* <div style={{ marginTop: authToken ? "0.66em" : 0 }} className="name">
+      <div style={{ marginTop: authToken ? "0.66em" : 0 }} className="name">
         Peter Fullmer
-      </div> */}
+      </div>
       {resume?.basics?.label && (
         <div style={{ margin: "0.5em" }} className="label">
           {resume.basics.label}
