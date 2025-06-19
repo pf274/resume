@@ -1,17 +1,9 @@
 import { useTheme } from "@emotion/react";
-import { colorByPercentage, darken, lighten } from "../../colorGen";
+import { colorByPercentage, darken, lighten } from "../../../colorGen";
 import { EditableSkillKeyword } from "./EditableSkillKeyword";
 import { useState } from "react";
-import { useResumeContext } from "../../contexts/ResumeContext";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Fab,
-  TextField,
-} from "@mui/material";
+import { useResumeContext } from "../../../contexts/ResumeContext";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Fab, TextField } from "@mui/material";
 import { Add } from "@mui/icons-material";
 
 export function SkillKeywords({ keywords, path }) {
@@ -49,9 +41,7 @@ export function SkillKeywords({ keywords, path }) {
   function handleEditKeyword(event) {
     setNewKeyword(event.target.value);
     replace(event.target.value, `${path}.${selectedIndex}`);
-    const newKeywords = kwds.map((keyword, index) =>
-      index === selectedIndex ? event.target.value : keyword
-    );
+    const newKeywords = kwds.map((keyword, index) => (index === selectedIndex ? event.target.value : keyword));
     setKeywords(newKeywords);
   }
 
@@ -93,9 +83,7 @@ export function SkillKeywords({ keywords, path }) {
     >
       {kwds.map((keyword, index) => {
         const percentage = kwds.length <= 1 ? 0 : index / (kwds.length - 1);
-        const keywordColor = isDark
-          ? lighten(colorByPercentage(percentage))
-          : darken(colorByPercentage(percentage));
+        const keywordColor = isDark ? lighten(colorByPercentage(percentage)) : darken(colorByPercentage(percentage));
         return (
           <EditableSkillKeyword
             key={`${keyword}${index}`}

@@ -1,8 +1,7 @@
-import { ContactInformation } from "../components/infoPage/ContactInformation";
-import { Summary } from "../components/infoPage/Summary";
 import { Skills } from "../components/infoPage/Skills";
 import { Page } from "../components/Page";
 import { useResumeContext } from "../contexts/ResumeContext";
+import { InfoTopSection } from "../components/infoPage/InfoTopSection";
 
 export function InfoPage() {
   const { getResume } = useResumeContext();
@@ -10,19 +9,7 @@ export function InfoPage() {
 
   return (
     <Page>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: "2em",
-          textAlign: "center",
-          flexWrap: "wrap-reverse",
-          justifyContent: "center",
-        }}
-      >
-        <ContactInformation basics={resume.basics} />
-        <Summary basics={resume.basics} />
-      </div>
+      <InfoTopSection />
       <Skills skills={resume.skills} />
     </Page>
   );

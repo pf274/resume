@@ -33,6 +33,13 @@
   }
 }
 
+main {
+  flex: 1;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
 .read-the-docs {
   color: #888;
 }
@@ -82,6 +89,23 @@
   border-color: red;
   cursor: pointer; 
 } */
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.resumeCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  gap: 1em;
+}
 
 @media (max-width: 600px) {
   .MuiTabs-indicator {

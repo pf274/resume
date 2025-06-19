@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { useResumeContext } from "../../contexts/ResumeContext";
+import { useResumeContext } from "../../../contexts/ResumeContext";
 import { Button, Chip, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 
@@ -23,11 +23,7 @@ export function EditableSkillLevel({ level, path }) {
   const { authToken, replace } = useResumeContext();
   const theme = useTheme();
   const isDark = theme.palette.mode == "dark";
-  const levelColor = Object.keys(levelsDark).includes(lvl.toLowerCase())
-    ? isDark
-      ? levelsDark[lvl.toLowerCase()]
-      : levelsLight[lvl.toLowerCase()]
-    : undefined;
+  const levelColor = Object.keys(levelsDark).includes(lvl.toLowerCase()) && (isDark ? levelsDark[lvl.toLowerCase()] : levelsLight[lvl.toLowerCase()]);
 
   function handleToggleMenu(event) {
     setAnchorEl(event.currentTarget);
@@ -54,12 +50,7 @@ export function EditableSkillLevel({ level, path }) {
       <Button onClick={handleToggleMenu} style={{ color: levelColor }}>
         {lvl}
       </Button>
-      <Menu
-        open={Boolean(anchorEl)}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        style={{ zIndex: 1000 }}
-      >
+      <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} onClose={handleClose} style={{ zIndex: 1000 }}>
         <MenuItem onClick={updateSkillLevel}>Beginner</MenuItem>
         <MenuItem onClick={updateSkillLevel}>Intermediate</MenuItem>
         <MenuItem onClick={updateSkillLevel}>Advanced</MenuItem>
